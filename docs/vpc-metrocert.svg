@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<foreignObject x="0" y="0" width="1600" height="1000">
+<div xmlns="http://www.w3.org/1999/xhtml" class="root"><style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.root { width: 1600px; height: 1000px; font-family: "DejaVu Sans", Arial, sans-serif; background: #f4f6fb; color: #1c2a44; padding: 28px 36px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #1e3a6e; padding-bottom: 10px; }
+h1 { font-size: 30px; color: #1e3a6e; }
+.sub { font-size: 13px; color: #5b6780; }
+.hmw { margin: 12px 0 14px; background: #1e3a6e; color: #fff; border-left: 8px solid #f5a623; padding: 10px 16px; font-size: 14.5px; line-height: 1.4; border-radius: 4px; }
+.hmw b { color: #f5a623; }
+.grid { display: grid; grid-template-columns: 1fr 70px 1fr; gap: 0; height: 740px; }
+.side { border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.left { order: 1; background: #fff; border: 3px solid #1f7a5a; }
+.right { order: 3; background: #fff; border: 3px solid #e2672a; }
+.side h2 { font-size: 18px; text-align: center; letter-spacing: 1px; }
+.left h2 { color: #1f7a5a; } .right h2 { color: #e2672a; }
+.block { border-radius: 8px; padding: 8px 12px; flex: 1; }
+.block h3 { font-size: 18px; margin-bottom: 5px; }
+.block ul { list-style: none; font-size: 13.6px; line-height: 1.36; }
+.block li { margin-bottom: 3px; padding-left: 4px; }
+.block li b { display: inline-block; min-width: 32px; }
+.jobs { background: #e8f5ef; } .pains { background: #fdecec; } .gains { background: #fff6dd; }
+.prod { background: #fdeee4; } .rel { background: #fdecec; } .cre { background: #fff6dd; }
+.fit { order: 2; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+.fit div { background: #1e3a6e; color: #fff; font-weight: bold; font-size: 13px; writing-mode: vertical-rl; transform: rotate(180deg); padding: 14px 8px; border-radius: 6px; }
+.arrow { font-size: 28px; color: #1e3a6e; }
+footer { margin-top: 10px; font-size: 12px; color: #5b6780; display: flex; justify-content: space-between; }
+.tag { font-size: 10.5px; color: #7a8599; }
+</style>
+<header>
+  <div><h1>Value Proposition Canvas — MetroCert</h1>
+  <div class="sub">Persona : Mame Diarra Sow, 38 ans, resp. technique d'un labo d'étalonnage (Mbao, Dakar) · ≈ 150 certificats/mois</div></div>
+  <div class="sub">GET 409 · S2 · Swiss UMEF Dakar · 2025-2026</div>
+</header>
+<div class="hmw"><b>HMW définitif —</b> Comment pourrions-nous permettre aux responsables techniques de laboratoires d'étalonnage au Sénégal, comme Mame Diarra, qui jonglent avec un modèle de certificat différent par famille d'instruments et par client, de passer des relevés de mesure à un certificat conforme à l'ISO/IEC 17025 sans aucune ressaisie, afin de livrer leurs clients dans la journée et de passer leurs audits d'accréditation sans écart lié aux certificats ?</div>
+<div class="grid">
+ <div class="side right">
+  <h2>💡 PROPOSITION DE VALEUR</h2>
+  <div class="block prod"><h3>📦 Produits &amp; services (MVP)</h3><ul><li><b>S1</b> Saisie unique des relevés, hors connexion</li><li><b>S2</b> Calcul GUM automatique et vérifiable (k = 2)</li><li><b>S3</b> PDF §7.8, circuit vérif. → approbation humaine</li><li><b>S4</b> Paramétrage multi-sociétés (logo, n°, règle ILAC G8)</li><li><b>S5</b> Registre des étalons + blocage si échu</li><li><b>S6</b> Agent Dify : contrôle de complétude</li><li><b>S7</b> QR code de vérification — SHOULD</li><li><b>S8</b> Historique + alertes — COULD</li></ul></div>
+  <div class="block rel"><h3>💊 Pain Relievers</h3><ul><li><b>P1</b> → Saisie unique qui alimente calcul et PDF</li><li><b>P2</b> → PDF prêt dès la fin de la saisie</li><li><b>P3</b> → 1 modèle par famille, habillé par client</li><li><b>P4</b> → Blocage à la sélection d'un étalon échu</li><li><b>P5</b> → Mentions §7.8 obligatoires + agent de contrôle</li><li><b>P6</b> → Calcul centralisé et versionné</li><li><b>P7</b> → L'agent signale d'abord, l'humain valide la mesure</li><li><b>P9</b> → Partiel : QR code (portail client après S6)</li></ul></div>
+  <div class="block cre"><h3>🎁 Gain Creators</h3><ul><li><b>G1</b> → Formulaire hors connexion synchronisé</li><li><b>G2</b> → §7.8 intégré, incertitude toujours avec k</li><li><b>G3</b> → Saisie → PDF immédiat, approbation en ligne</li><li><b>G4</b> → Nouveau client = 1 fiche de paramétrage</li><li><b>G5</b> → Contrôle automatique des étalons</li><li><b>G6</b> → Fin de la ressaisie et de la mise en page</li><li><b>G7</b> → QR code sur chaque certificat</li></ul></div>
+ </div>
+ <div class="fit"><span class="arrow">◀</span><div>FIT : P1, P2, P4, P5, P7 couverts · S9 retiré</div><span class="arrow">▶</span></div>
+ <div class="side left">
+  <h2>👤 PROFIL CLIENT — MAME DIARRA</h2>
+  <div class="block jobs"><h3>🔧 Jobs To Be Done</h3><ul><li><b>J1</b> Émettre des certificats conformes ISO/IEC 17025 §7.8</li><li><b>J2</b> Tenir les délais clients (audits ISO 9001)</li><li><b>J3</b> Garantir la traçabilité : étalons valides, conditions ambiantes</li><li><b>J4</b> Respecter le format imposé par chaque client</li><li><b>J5</b> Produire plus sans embaucher</li><li><b>J6</b> Être reconnue « au niveau des labos européens » (social)</li><li><b>J7</b> Aborder un audit sereinement (émotionnel)</li></ul></div>
+  <div class="block pains"><h3>😣 Pains</h3><ul><li><b>P1</b> Erreurs de recopie carnet → Excel → Word ★★★★★</li><li><b>P2</b> Délais de 2 à 5 jours ★★★★★</li><li><b>P3</b> Un modèle par instrument et par client ★★★★</li><li><b>P4</b> Échéances des étalons suivies à la main ★★★★★</li><li><b>P5</b> Mentions oubliées relevées en audit ★★★★</li><li><b>P6</b> Classeurs Excel fragiles ★★★</li><li><b>P7</b> Relecture solitaire le soir ★★★★</li><li><b>P8</b> Pas d'historique par instrument ★★</li><li><b>P9</b> Certificats perdus, non authentifiables ★★</li></ul></div>
+  <div class="block gains"><h3>🌟 Gains</h3><ul><li><b>G1</b> Saisie unique, même hors connexion ★★★★★</li><li><b>G2</b> Certificats conformes par construction ★★★★★</li><li><b>G3</b> Livraison dans la journée ★★★★★</li><li><b>G4</b> Un seul outil pour tous les clients ★★★★</li><li><b>G5</b> Blocage si étalon hors validité ★★★★</li><li><b>G6</b> Plus de certificats par technicien ★★★★</li><li><b>G7</b> QR code de vérification ★★★</li><li><b>G8</b> Historique pour les intervalles ★★</li></ul></div>
+ </div>
+</div>
+<footer><span>Hypothèses S3 : H1 ressaisie = 1ʳᵉ cause de délai · H2 modèle unique accepté par les clients · H3 écarts d'audit = mentions manquantes · H4 saisie hors connexion nécessaire</span><span>Détail : docs/vpc.md · GET409-MetroCert</span></footer>
+</div>
+</foreignObject></svg>

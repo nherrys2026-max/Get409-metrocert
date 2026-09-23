@@ -2,7 +2,9 @@
 
 Format du cours : « Comment pourrions-nous **[VERBE D'ACTION]** pour **[UTILISATEUR]** afin de **[BÉNÉFICE]** ? »
 
-## Énoncé retenu (fil directeur du projet)
+> **Mise à jour S2 :** l'énoncé définitif est dans [docs/hmw-definitif.md](docs/hmw-definitif.md). Les énoncés ci-dessous sont ceux de la S1.
+
+## Énoncé retenu en S1
 
 > **HMW 1 —** Comment pourrions-nous **permettre** aux **techniciens et responsables de laboratoires d'étalonnage** de générer, pour n'importe quel instrument et n'importe quelle société cliente, un certificat d'étalonnage conforme à l'ISO/IEC 17025 en quelques minutes, **afin de** supprimer les erreurs de recopie et de livrer leurs clients plus rapidement ?
 

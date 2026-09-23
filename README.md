@@ -6,12 +6,10 @@
 
 | Prénom Nom | Rôle | GitHub |
 |---|---|---|
-| Ivon NKOUNKOU | Chef de Produit (PM) | @nherrys2026-max |
-| Ivon NKOUNKOU | Master Prompt Engineer | @nherrys2026-max |
-| Ivon NKOUNKOU | Dev UI (No-Code) | @nherrys2026-max |
-| Ivon NKOUNKOU | Responsable Impact & Éthique | @nherrys2026-max |
+| Ivon NKOUNKOU | Chef de Produit (PM) · Dev UI (No-Code) | @nherrys2026-max |
+| Maimouna Sira COULIBALY | Master Prompt Engineer · Responsable Impact & Éthique | coulibalymaimounasira@gmail.com |
 
-Contact GitHub de l'équipe : nherrys2026@gmail.com
+Contacts GitHub de l'équipe : nherrys2026@gmail.com · coulibalymaimounasira@gmail.com
 
 ## Notre défi
 

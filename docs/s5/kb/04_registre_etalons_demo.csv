@@ -1,0 +1,6 @@
+Identifiant_etalon,Designation,Famille,Etendue,Certificat_etalon,Laboratoire_etalonnage,Date_etalonnage,Date_echeance,Statut_au_29-09-2026
+ETA-P-03,Manomètre numérique de référence,Pression,0 à 25 bar,2026-P-117,Laboratoire accrédité (fictif),2026-03-15,2027-03-15,Valide
+ETA-M-01,Jeu de masses étalons classe F1 1 mg à 200 g,Masse,1 mg à 200 g,2025-M-208,Laboratoire accrédité (fictif),2025-11-30,2026-11-30,Valide
+ETA-M-04,Masses étalons classe M1 5 kg à 20 kg,Masse,5 kg à 20 kg,2026-M-033,Laboratoire accrédité (fictif),2026-02-10,2027-02-10,Valide
+ETA-T-02,Sonde Pt100 de référence + indicateur,Température,-40 °C à 250 °C,2025-T-091,Laboratoire accrédité (fictif),2025-08-31,2026-08-31,Échu — ne pas utiliser
+ETA-T-05,Four à bloc sec,Température,-20 °C à 150 °C,2026-T-012,Laboratoire accrédité (fictif),2026-01-20,2027-01-20,Valide

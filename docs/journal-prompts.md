@@ -165,3 +165,28 @@ sans solution imposée, contextualisé). Donne une note /6 et la faiblesse princ
 - Le **Few-Shot** (P3) fait respecter nos contraintes (mentions §7.8 verrouillées) sans les répéter.
 - Le **Chain-of-Thought** (P4) est le plus utile pour l'analyse stratégique : il prépare la réponse au jury « pourquoi pas un LIMS ? ».
 - Règle de l'équipe : l'IA ne produit jamais un résultat de mesure ni une incertitude ; elle aide à structurer, rédiger et contrôler.
+
+
+---
+
+# Journal de prompts — S4 (MVP V1 avec Lovable)
+
+Prompts exacts, résultats attendus et grille d'analyse : [s4/s4-mvp-lovable.md §4](s4/s4-mvp-lovable.md). Les résultats observés et les notes sont à saisir après exécution dans Lovable.
+
+| # | Technique | Objet |
+|---|---|---|
+| P1 | Prompt structuré (6 sections) | Initialisation du MVP MetroCert |
+| P2 | Correctif ciblé | Format français des nombres et unités SI |
+| P3 | Few-Shot | Contrôle de complétude avant aperçu |
+| P4 | Correctif ciblé | Responsive mobile |
+
+# Journal de prompts — S5 (RAG + webhook)
+
+Détail : [s5/s5-rag-webhook.md](s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts).
+
+| # | Technique | Objet |
+|---|---|---|
+| P1 | Prompt système + RAG | Nœud CHERCHEUR : contrôle MC-01 à MC-22 |
+| P2 | Format de sortie imposé | Nœud RÉDACTEUR : rapport de contrôle |
+| P3 | Prompt structuré Lovable | Webhook `workflows/run` |
+| P4 | Test de cohérence hors base | Question météo |

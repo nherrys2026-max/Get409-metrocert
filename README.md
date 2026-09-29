@@ -43,6 +43,30 @@ Par rapport à la S1, le HMW définitif garde un seul utilisateur principal (le 
 | **Journal de Prompts** (5 entrées S2 : Zero-Shot, Few-Shot, CoT, libre) | [docs/journal-prompts.md](docs/journal-prompts.md) | ✅ |
 | Capture du pitch HMW (recommandé) | Script dans [docs/hmw-definitif.md](docs/hmw-definitif.md#pitch-hmw--2-minutes) | ✅ |
 
+## Livrables S4 — MVP V1 (Lovable)
+
+| Livrable | Fichier / lien | Statut |
+| --- | --- | --- |
+| **L1 · MVP V1 en ligne** (35 pts) | URL lovable.app : _à renseigner_ | ⏳ |
+| **L2 · Projet Lovable public + README** (25 pts) | Dépôt du code : _à renseigner_ | ⏳ |
+| **L3 · Journal de prompts S4** (init + 3 itérations) | [docs/s4/s4-mvp-lovable.md §4](docs/s4/s4-mvp-lovable.md#4-journal-de-prompts-s4-l3--min-4-prompts) | ⏳ résultats à noter |
+| **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page-brouillon-à-ajuster) | ⏳ captures à faire |
+
+Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md).
+
+## Livrables S5 — MVP V2 : RAG + webhook
+
+| Livrable | Fichier / lien | Statut |
+| --- | --- | --- |
+| **L1 · MVP V2 avec webhook** (30 pts) | URL lovable.app : _à renseigner_ | ⏳ |
+| **L2 · Pipeline RAG** (30 pts) | Base `MetroCert_KB_v1` : [docs/s5/kb/](docs/s5/kb/) · capture Dify à ajouter | ⏳ |
+| **L3 · Schéma d'architecture V2** (20 pts) | [docs/s5/architecture-v2.png](docs/s5/architecture-v2.png) | ✅ |
+| **L4 · Journal de prompts S5** (min. 3) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ⏳ résultats à noter |
+
+Agent Dify S3 (L1) : [GreenSprint_FicheMarche_v1_[HERRYSTEAM]](https://udify.app/workflow/QXaHDWAvm4XwbX8c), dupliqué en `MetroCert_ControleCertificat_v2` pour le contrôle de complétude des certificats (ISO/IEC 17025 §7.8).
+
+![Architecture V2](docs/s5/architecture-v2.png)
+
 ## Structure du dépôt
 
 ```
@@ -60,5 +84,11 @@ GET409-MetroCert/
     ├── concept-application.md   ← vision produit et périmètre du MVP
     ├── guide-entretien.md       ← questions pour valider la carte d'empathie
     ├── fiche-equipe.md          ← réponses à reporter dans le Google Forms
-    └── journal-prompts.md       ← traçabilité de l'usage de l'IA (S1 + S2)
+    ├── journal-prompts.md       ← traçabilité de l'usage de l'IA (S1 à S5)
+    ├── s4/
+    │   └── s4-mvp-lovable.md    ← S4 · prompts Lovable, journal, note d'itération
+    └── s5/
+        ├── s5-rag-webhook.md    ← S5 · RAG, workflow Dify, webhook, tests, plan B
+        ├── architecture-v2.svg/.png ← S5 · L3
+        └── kb/                  ← S5 · documents de la base MetroCert_KB_v1
 ```

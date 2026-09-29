@@ -2,28 +2,32 @@
 
 > Séance 5 / 8 · Livrables : L1 MVP V2 en ligne avec webhook (30 pts) · L2 pipeline RAG, capture Dify (30 pts) · L3 schéma d'architecture V2 (20 pts) · L4 journal de prompts S5, min. 3 prompts (20 pts). Dépôt 48 h après la séance ; S6 = évaluation intermédiaire.
 
-## 0. Point de départ : l'application L1 (S3)
+## 0. État de l'application L1 (mis à jour le 29/09/2026, 19 h 20)
 
-| Élément | État constaté le 29/09/2026 |
+| Élément | État |
 |---|---|
-| Application | `GreenSprint_FicheMarche_v1_[HERRYSTEAM]` — type Workflow — https://udify.app/workflow/QXaHDWAvm4XwbX8c |
-| Web app | Activée, mais **« App unavailable »** : `/api/parameters` renvoie `app_unavailable` (400) |
-| Cause probable | Workflow non publié après une modification, ou fournisseur de modèle (clé Groq / modèle) retiré ou invalide |
-| À faire avant tout | Studio → ouvrir le workflow → vérifier le modèle de chaque nœud LLM (Paramètres → Fournisseurs de modèles) → **Publier une mise à jour** → rouvrir l'URL L1 et vérifier que le formulaire s'affiche |
-
-**Principe retenu** : on garde l'architecture de L1 (Début `query` → CHERCHEUR → RÉDACTEUR → Fin), on la **duplique** en `MetroCert_ControleCertificat_v2` (L1 reste intacte pour l'évaluation S3) et on remplace le métier « fiche marché » par le métier MetroCert : **l'agent de contrôle de complétude du certificat**, défini dans `docs/concept-application.md` §7-8.
+| Application | `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` (id 8348ab36…) — type Workflow — https://udify.app/workflow/QXaHDWAvm4XwbX8c |
+| Modèle | gpt-4.1 (OpenAI), température 0,1 |
+| Entrée | `question` (paragraphe, 5 000 caractères max) — « Projet de certificat à contrôler » |
+| Graphe publié | Début → **Récupération de connaissances** (`MetroCert_KB_v1`, Top K 3) → CHERCHEUR (contexte `{{#context#}}` + contrôle de cohérence des verdicts) → SI/SINON → RÉDACTEUR → Fin |
+| Sorties | `rapport_controle` (branche normale) · `message_erreur` (branche « données insuffisantes ») |
+| Web app | ✅ republiée — le formulaire s'affiche de nouveau (plus d'« App unavailable ») |
+| Titre public de la web app | encore « GreenSprint_FicheMarche_v1_[HERRYSTEAM] » : à renommer dans Publier → Paramètres de la web app |
 
 ```
-Début (query) → Récupération de connaissances (MetroCert_KB_v1) → CHERCHEUR → RÉDACTEUR → Fin (rapport)
+Début (question) → Récupération de connaissances (MetroCert_KB_v1) → CHERCHEUR → SI/SINON → RÉDACTEUR → Fin (rapport_controle)
+                                                                                 └→ Fin (message_erreur)
 ```
 
-L'agent **ne calcule ni les erreurs ni les incertitudes** (calcul déterministe dans le MVP) : il relit, il cite l'exigence manquante, il ne décide pas à la place du signataire.
+L'agent **ne calcule ni les erreurs ni les incertitudes** (calcul déterministe dans le MVP) : il relit, il cite l'exigence manquante, il compare les valeurs écrites à leur critère, il ne décide pas à la place du signataire.
 
 ---
 
 ## Étape A — Base de connaissances `MetroCert_KB_v1` (20 min)
 
-Fichiers prêts dans `docs/s5/kb/` :
+**Déjà fait** : base `MetroCert_KB_v1` créée (mode Économique, index inversé) avec le rapport réel HICEB2026AM140 (balance 210 g) transcrit en texte, client anonymisé, découpé par section (`##`, 1 000 caractères, 11 morceaux). Test de récupération « étendue répétabilité EMT » → morceau « Essai de répétabilité » ✅.
+
+À ajouter ensuite (Documents → Ajouter un fichier, **un fichier à la fois** en Sandbox), fichiers prêts dans `docs/s5/kb/` :
 
 | Fichier | Contenu | Longueur de morceau |
 |---|---|---:|
@@ -32,10 +36,10 @@ Fichiers prêts dans `docs/s5/kb/` :
 | `03_familles_instruments.csv` | Manomètres, balance, thermomètre : référentiels, points, sources d'incertitude, spécification | 300 |
 | `04_registre_etalons_demo.csv` | 5 étalons fictifs, dont **ETA-T-02 échu** (utile pour la démo) | 300 |
 
-1. Dify → **Connaissance** → **+ Créer des connaissances** → Importer à partir d'un fichier → sélectionner les 4 fichiers.
+1. Dify → **Connaissance** → `MetroCert_KB_v1` → **Ajouter un fichier** → un fichier à la fois.
 2. Segmentation personnalisée : délimiteur `\n\n`, longueur 500 (Markdown) — si Dify impose un réglage unique, prendre **300** ; chevauchement 50.
 3. Mode d'index : **Économique** (index inversé, plan gratuit) ; Top K = 3.
-4. Enregistrer & Traiter → attendre 🟢 Disponible → renommer la base `MetroCert_KB_v1`.
+4. Enregistrer & Traiter → attendre 🟢 Disponible.
 5. **Test de récupération** (capture pour L2) :
 
 | # | Requête (mots proches du texte : mode Économique = mots-clés) | Morceau attendu |
@@ -49,11 +53,21 @@ Fichiers prêts dans `docs/s5/kb/` :
 
 ---
 
-## Étape B — Adapter le workflow L1 et le connecter à la base (15 min)
+## Étape B — Connecter la base au workflow L1 (✅ fait le 29/09/2026)
 
-1. Studio → `GreenSprint_FicheMarche_v1_[HERRYSTEAM]` → **⋯ → Dupliquer** → renommer `MetroCert_ControleCertificat_v2`.
-2. Nœud **Début** : variable `query`, type **Paragraphe**, longueur max **4000**, libellé « Certificat à contrôler ou question ».
-3. **+** entre Début et CHERCHEUR → **Récupération de connaissances** : texte de la requête = `Début · query` ; connaissances = `MetroCert_KB_v1` ; Top K = **5** (un certificat touche plusieurs exigences).
+Réalisé directement sur L1 (pas de duplication) :
+
+1. **Récupération de connaissances** insérée entre Début et CHERCHEUR : texte de la requête = `Début · question` ; connaissances = `MetroCert_KB_v1` ; Top K = 3.
+2. CHERCHEUR : **Contexte** = `Récupération de connaissances · result` ; ajout en fin de prompt système d'un bloc « DONNÉES DE LA BASE DE CONNAISSANCES … {{#context#}} » (les rapports de la base servent de référence, jamais de certificat à contrôler).
+3. CHERCHEUR : ajout d'un **contrôle de cohérence des verdicts** (|E| ≤ EMT, différence max ≤ EMT, étendue ≤ EMT, |E| + U ≤ EMT si zone de garde).
+4. RÉDACTEUR : nouvelle rubrique **🔎 INCOHÉRENCES** ; une incohérence impose « ⛔ À corriger avant approbation ».
+5. Test sur HICEB2026AM140 ✅ : 6 nœuds réussis en ≈ 10 s ; l'agent relève l'étendue 0,003 g > EMT 0,002 g déclarée conforme, l'absence de conditions ambiantes, de traçabilité, de date d'émission, de k et de règle de décision.
+6. Publié (version « S3 + RAG KB_v1 »).
+
+Reste à faire : Publier → Accéder à la référence API → **Clé API** → + Créer une nouvelle clé secrète (affichée une seule fois) ; capture L2 (base 🟢 + canvas).
+
+<details><summary>Variante « v2 » avec prompts réécrits (optionnelle, conservée pour mémoire)</summary>
+
 4. Nœud **CHERCHEUR** → Contexte = `Récupération de connaissances · result` → remplacer le prompt SYSTEM par :
 
 ```text
@@ -83,7 +97,7 @@ DONNÉES DE LA BASE DE CONNAISSANCES :
 {{#context#}}
 ```
 
-   USER : `{{#start.query#}}` (sélectionner la variable via `{x}`). Température du modèle : **0,1 à 0,2**.
+   USER : `{{#start.question#}}` (sélectionner la variable via `{x}`). Température du modèle : **0,1 à 0,2**.
 
 5. Nœud **RÉDACTEUR** → prompt SYSTEM :
 
@@ -110,10 +124,12 @@ N'ajoute aucune exigence qui ne figure pas dans l'analyse.
 
    USER : `{{#[CHERCHEUR].text#}}` (sortie du nœud CHERCHEUR).
 
-6. Nœud **Fin** : une seule variable de sortie nommée **`rapport`** = `RÉDACTEUR · text`.
+6. Nœud **Fin** : sortie `rapport_controle` = `RÉDACTEUR · text`.
 7. **Exécuter** (test) avec le certificat incomplet de l'étape D → vérifier le format → **Publier**.
 8. Publier → Accéder à la référence API → **Clé API** → + Créer une nouvelle clé secrète → la copier (affichée une seule fois).
 9. Capture L2 : base 🟢 + canvas du workflow montrant le nœud Récupération relié au CHERCHEUR.
+
+</details>
 
 ---
 
@@ -141,12 +157,13 @@ Headers :
   Authorization: Bearer [COLLER_LA_CLÉ_API_ICI]
   Content-Type: application/json
 Body JSON :
-  { "inputs": { "query": texteAEnvoyer },
+  { "inputs": { "question": texteAEnvoyer },
     "response_mode": "blocking",
     "user": "metrocert-" + Date.now() }
 
 TRAITEMENT DE LA RÉPONSE :
-- Succès : afficher response.data.outputs.rapport dans une zone à fond gris clair,
+- Succès : afficher response.data.outputs.rapport_controle dans une zone à fond gris clair
+  (si elle est absente, afficher response.data.outputs.message_erreur en orange),
   en conservant les retours à la ligne (white-space: pre-wrap)
 - Si response.data.status vaut "failed" : afficher response.data.error en rouge
 - Erreur réseau : "Service temporairement indisponible"
@@ -159,7 +176,7 @@ STYLE : cohérent avec le MVP (bleu #1E3A8A). Responsive mobile. Ne modifie rien
 > Timeout porté à 30 s : deux nœuds LLM en série + récupération dépassent souvent 10 s.
 > **Sécurité** : la clé sera visible dans le code du navigateur (acceptable pour le prototype, à écrire dans la note d'éthique). Ne jamais la committer dans le dépôt public. Version propre si le temps le permet : « Déplace l'appel Dify dans une fonction serveur Lovable Cloud et stocke la clé en secret `DIFY_API_KEY` ».
 
-Dépannage : 401 → clé mal copiée ou régénérée ; `rapport` undefined → ouvrir F12 → Réseau → réponse, vérifier le nom de la variable de sortie du nœud Fin ; 400 `app_unavailable` → workflow non publié.
+Dépannage : 401 → clé mal copiée ou régénérée ; `rapport_controle` undefined → ouvrir F12 → Réseau → réponse, vérifier le nom de la variable de sortie du nœud Fin ; 400 `app_unavailable` → workflow non publié.
 
 ---
 
@@ -212,7 +229,7 @@ le bouton "Contrôler avec l'agent MetroCert" n'appelle pas l'API : il affiche a
 |---|---|---|---|:-:|---|
 | P1 | Prompt système + RAG (`{{#context#}}`) | CHERCHEUR : contrôle MC-01…MC-22 | _à compléter après T1_ | | ex. Top K 3 → 5 si des exigences manquent |
 | P2 | Structure imposée (format de sortie) | RÉDACTEUR : rapport de contrôle | _à compléter_ | | |
-| P3 | Prompt structuré Lovable | Webhook `workflows/run` + `outputs.rapport` | _à compléter_ | | ex. timeout 10 s → 30 s |
+| P3 | Prompt structuré Lovable | Webhook `workflows/run` + `outputs.rapport_controle` | _à compléter_ | | ex. timeout 10 s → 30 s |
 | P4 | Test de cohérence (hors base) | T3 météo | _à compléter_ | | |
 
 Pour chaque prompt : texte exact (copier depuis ce document), résumé de la réponse, note, ce qui a été modifié.

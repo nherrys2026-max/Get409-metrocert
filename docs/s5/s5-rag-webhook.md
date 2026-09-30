@@ -227,20 +227,15 @@ le bouton "Contrôler avec l'agent MetroCert" n'appelle pas l'API : il affiche a
 
 | # | Technique | Objet | Résultat observé | Note /5 | Itération |
 |---|---|---|---|:-:|---|
-| P1 | Prompt système + RAG (`{{#context#}}`) | CHERCHEUR : contrôle M1–M15 + citation de la base | Sur HICEB2026AM140 : relève conditions ambiantes, traçabilité, date d'émission, k, règle de décision. Sur le tableau MVP : 10 manquantes, verdict ⛔. **Défaut** : confond sa grille M1–M15 avec les identifiants MC de la base (cite [MC-11] pour les conditions ambiantes au lieu de MC-17) | 3/5 | Ajouter une table de correspondance M → MC (voir ci-dessous) |
-| P2 | Structure imposée + règle de cohérence | CHERCHEUR + RÉDACTEUR : « étendue ≤ EMT », rubrique 🔎 INCOHÉRENCES | V1 : incohérence de répétabilité (0,003 g > 0,002 g) non vue. V2 : relevée et reprise dans le rapport | 4/5 | Rubrique 🔎 ajoutée au modèle du RÉDACTEUR |
-| P3 | Prompt structuré Lovable (Few-Shot sur le modèle du cours) | Webhook `workflows/run`, `inputs.question`, `outputs.rapport_controle`, secret serveur `DIFY_API_KEY` | ✅ 30/09 : bouton « Envoyer le tableau à l'agent » + « Contrôler avec l'agent MetroCert » ; rapport affiché en ≈ 25 s ; clé stockée côté serveur (Lovable Cloud), absente du code | 5/5 | Timeout 10 s → 30 s ; clé en secret serveur au lieu du navigateur |
-| P4 | Mode question RAG | « L'étalon ETA-T-02 peut-il être utilisé ? » | V1 : « Information non disponible » (le CSV du registre ne remontait pas en recherche par mots-clés). V2 (registre réécrit en texte, Top K 8) : « Non : statut Échu, échéance 31/08/2026, rompt la traçabilité (MC-18) » | 4/5 | Registre converti CSV → Markdown ; recherche par mots-clés |
+| P1 | Prompt système + RAG (`{{#context#}}`) | CHERCHEUR : contrôle M1–M15 + citation de la base | V1 : confondait sa grille M1–M15 avec les identifiants MC (citait [MC-11] pour les conditions ambiantes). V2 (table de correspondance M→MC) : cite MC-17, MC-18, MC-14 correctement | 3/5 → 5/5 | Table M1→MC-01 … M15→MC-14 ajoutée |
+| P2 | Structure imposée + règle de cohérence | CHERCHEUR + RÉDACTEUR : « étendue ≤ EMT », « \|E\| + U ≤ EMT », rubrique 🔎 INCOHÉRENCES | V1 : incohérence de répétabilité non vue. V2 : relève « étendue 0,003 g > EMT 0,002 g » et « point 7,50 bar déclaré conforme alors que \|E\| + U = 0,112 bar > 0,10 bar » | 5/5 | Rubrique 🔎 ajoutée au modèle du RÉDACTEUR |
+| P3 | Prompt structuré Lovable (adapté du modèle du cours) | Webhook `workflows/run`, `inputs.question`, `outputs.rapport_controle`, secret serveur `DIFY_API_KEY` | ✅ 30/09 : « Envoyer le tableau à l'agent » + « Contrôler avec l'agent MetroCert » ; rapport affiché en 15 à 30 s ; clé stockée côté serveur (Lovable Cloud) | 5/5 | Timeout 10 s → 30 s ; clé en secret serveur au lieu du navigateur |
+| P4 | Mode question RAG | « L'étalon ETA-T-02 peut-il être utilisé ? » | V1 : « Information non disponible » (le registre CSV ne remontait pas en recherche par mots-clés). V3 (registre réécrit avec le vocabulaire des questions) : « Non : Échu depuis le 31/08/2026, rompt la traçabilité (MC-18) ; utiliser ETA-T-05 » | 2/5 → 5/5 | Registre CSV → Markdown enrichi ; Top K 8 |
 | P5 | Test hors base | « Quelle est la météo demain à Dakar ? » | ✅ « INSUFFISANT : question sans instrument, mesure ou certificat » — aucune invention | 5/5 | — |
 
-**Correction à appliquer (P1)** — ajouter au prompt système du CHERCHEUR :
+**Incident du 30/09 — crédits d'essai Dify épuisés** (OpenAI gpt-4.1 : 196/200 messages). Les deux agents sont passés sur la clé Groq de l'équipe (`openai/gpt-oss-120b`, gratuit). Effets secondaires corrigés : le modèle affichait son raisonnement `<think>…</think>` et du gras Markdown → deux nœuds Code « Nettoyage » ajoutés après le CHERCHEUR et le RÉDACTEUR ; `max_tokens` 1 500 tronquait la réponse → 3 000 pour le CHERCHEUR. Limite : le palier gratuit Groq accepte environ une requête par minute (erreur 429 si on enchaîne) — à dire au jury et à prévoir dans le plan B.
 
-```text
-CORRESPONDANCE OBLIGATOIRE grille → base (cite l'identifiant MC de droite) :
-M1→MC-01 · M2→MC-02 · M3→MC-03 · M4→MC-04 · M5→MC-05 · M6→MC-06 · M7→MC-07
-M8→MC-09 et MC-10 · M9→MC-12 · M10→MC-16 · M11→MC-17 · M12→MC-18
-M13→MC-19 · M14→MC-21 · M15→MC-14
-```
+Captures : `captures/L1_tableau_zone_de_garde_desktop.png`, `captures/L1_agent_ETA-T-02_desktop.png`, `captures/L4_mobile_prestations_menu_bug.png`.
 
 Pour chaque prompt : texte exact (copier depuis ce document), résumé de la réponse, note, ce qui a été modifié.
 

@@ -227,10 +227,20 @@ le bouton "Contrôler avec l'agent MetroCert" n'appelle pas l'API : il affiche a
 
 | # | Technique | Objet | Résultat observé | Note /5 | Itération |
 |---|---|---|---|:-:|---|
-| P1 | Prompt système + RAG (`{{#context#}}`) | CHERCHEUR : contrôle MC-01…MC-22 | _à compléter après T1_ | | ex. Top K 3 → 5 si des exigences manquent |
-| P2 | Structure imposée (format de sortie) | RÉDACTEUR : rapport de contrôle | _à compléter_ | | |
-| P3 | Prompt structuré Lovable | Webhook `workflows/run` + `outputs.rapport_controle` | _à compléter_ | | ex. timeout 10 s → 30 s |
-| P4 | Test de cohérence (hors base) | T3 météo | _à compléter_ | | |
+| P1 | Prompt système + RAG (`{{#context#}}`) | CHERCHEUR : contrôle M1–M15 + citation de la base | Sur HICEB2026AM140 : relève conditions ambiantes, traçabilité, date d'émission, k, règle de décision. Sur le tableau MVP : 10 manquantes, verdict ⛔. **Défaut** : confond sa grille M1–M15 avec les identifiants MC de la base (cite [MC-11] pour les conditions ambiantes au lieu de MC-17) | 3/5 | Ajouter une table de correspondance M → MC (voir ci-dessous) |
+| P2 | Structure imposée + règle de cohérence | CHERCHEUR + RÉDACTEUR : « étendue ≤ EMT », rubrique 🔎 INCOHÉRENCES | V1 : incohérence de répétabilité (0,003 g > 0,002 g) non vue. V2 : relevée et reprise dans le rapport | 4/5 | Rubrique 🔎 ajoutée au modèle du RÉDACTEUR |
+| P3 | Prompt structuré Lovable (Few-Shot sur le modèle du cours) | Webhook `workflows/run`, `inputs.question`, `outputs.rapport_controle`, secret serveur `DIFY_API_KEY` | ✅ 30/09 : bouton « Envoyer le tableau à l'agent » + « Contrôler avec l'agent MetroCert » ; rapport affiché en ≈ 25 s ; clé stockée côté serveur (Lovable Cloud), absente du code | 5/5 | Timeout 10 s → 30 s ; clé en secret serveur au lieu du navigateur |
+| P4 | Mode question RAG | « L'étalon ETA-T-02 peut-il être utilisé ? » | V1 : « Information non disponible » (le CSV du registre ne remontait pas en recherche par mots-clés). V2 (registre réécrit en texte, Top K 8) : « Non : statut Échu, échéance 31/08/2026, rompt la traçabilité (MC-18) » | 4/5 | Registre converti CSV → Markdown ; recherche par mots-clés |
+| P5 | Test hors base | « Quelle est la météo demain à Dakar ? » | ✅ « INSUFFISANT : question sans instrument, mesure ou certificat » — aucune invention | 5/5 | — |
+
+**Correction à appliquer (P1)** — ajouter au prompt système du CHERCHEUR :
+
+```text
+CORRESPONDANCE OBLIGATOIRE grille → base (cite l'identifiant MC de droite) :
+M1→MC-01 · M2→MC-02 · M3→MC-03 · M4→MC-04 · M5→MC-05 · M6→MC-06 · M7→MC-07
+M8→MC-09 et MC-10 · M9→MC-12 · M10→MC-16 · M11→MC-17 · M12→MC-18
+M13→MC-19 · M14→MC-21 · M15→MC-14
+```
 
 Pour chaque prompt : texte exact (copier depuis ce document), résumé de la réponse, note, ce qui a été modifié.
 

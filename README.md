@@ -63,6 +63,7 @@ Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md
 | **L3 · Schéma d'architecture V2.1** (20 pts) | [docs/s5/architecture-v2-1.png](docs/s5/architecture-v2-1.png) (V2 initiale : [architecture-v2.png](docs/s5/architecture-v2.png)) | ✅ |
 | **L4 · Journal de prompts S5** (10 prompts) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ✅ |
 | **Tests de non-régression T1–T6** (S5+, module B) | [docs/s5/s5bis-rag-deux-recherches.md §5](docs/s5/s5bis-rag-deux-recherches.md#5-batterie-de-tests-t1t6-module-b) | ✅ 6/6 (v2.3) |
+| **Fonctionnalité IA innovante** (S5+, module D) | 3 propositions notées (F1 24/25 · F3 19/25 · F2 15/25), F1 « validation et renvoi au technicien » spécifiée, tests T7–T8 — [docs/s5/module-d-fonctionnalites.md](docs/s5/module-d-fonctionnalites.md) | ⏳ prompt Lovable à appliquer |
 
 Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — version publiée **« v2.3 bilan doublons »** (01/10/2026) — CHERCHEUR Groq `gpt-oss-120b`, RÉDACTEUR Groq `gpt-oss-20b` (reasoning low). Limite du palier gratuit Groq : un contrôle par minute.
 
@@ -91,6 +92,7 @@ GET409-MetroCert/
     └── s5/
         ├── s5-rag-webhook.md          ← S5 · RAG, webhook, journal de prompts, plan B
         ├── s5bis-rag-deux-recherches.md ← S5 bis · base fixe, workflow publié, tests T1–T6, versions
+        ├── module-d-fonctionnalites.md ← S5+ module D · 3 fonctionnalités notées, spec F1, T7–T8
         ├── architecture-v2-1.png/.html ← S5 · L3 (schéma à jour) ; architecture-v2.* = V2 initiale
         ├── prompts/                   ← prompts SYSTEM publiés (CHERCHEUR, RÉDACTEUR)
         ├── code/                      ← nœuds Code Dify (Nettoyage CHERCHEUR / RÉDACTEUR)

@@ -198,3 +198,5 @@ Détail : [s5/s5-rag-webhook.md](s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--
 | P10 | Code déterministe | Bilan recalculé, incohérences dédoublonnées |
 
 Tests de non-régression T1–T6 : [s5/s5bis-rag-deux-recherches.md §5](s5/s5bis-rag-deux-recherches.md).
+
+Module D (S5+) — prompts P-Idées et P-Spec, prompt Lovable de F1, tests T7–T8 : [s5/module-d-fonctionnalites.md](s5/module-d-fonctionnalites.md).

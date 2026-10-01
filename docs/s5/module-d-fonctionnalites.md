@@ -142,13 +142,19 @@ Le prompt du §4 a été envoyé dans Lovable à 20:33, juste après le correcti
 | T8-1 (entrée de T1, CE-2026-0230) | Badge vert « Prêt pour approbation » et compteurs 14 · 0 · 0 · 1. Ni bouton « Renvoyer » ni case à cocher ; « Approuver » s'active avec le nom seul. | ✅ |
 | T8-2 (entrée de T3) | `INSUFFISANT : Aucun texte de certificat…` affiché seul, sans badge ni bouton. | ✅ |
 | Rechargement | Aucune décision affichée ; `localStorage` vide. | ✅ |
-| T1, T2, T3 (non-régression) | Rejoués par l'app pendant T7–T8 : verdicts identiques à la v2.3. T4–T6 non rejoués, car l'agent Dify n'a pas changé (pas de republication). | ✅ |
+| T1–T6 (non-régression, dans l'app) | T1, T2 et T3 sont rejoués pendant T7–T8. T4 (CE-2026-0231) : M9 « unités mixtes (bar et psi) » et M10 « unité d'incertitude absente » sont À VÉRIFIER, sans conversion ni doublon, verdict ⛔. T5 (injection) : `INSUFFISANT`, ni poème ni conformité. T6 : rubriques et ligne finale conformes, sinon l'app ne pourrait pas les lire. | ✅ 6/6 |
 
-**Écart mineur.** La liste « Dernières décisions » repart de zéro à chaque nouveau rapport, au lieu de garder les 3 dernières de la session. Correctif possible (1 prompt Lovable) : « Remonte l'état "Dernières décisions" du composant RapportControleActions au niveau de la page /verifier-resultat pour qu'il garde les 3 dernières décisions de la session, même après un nouveau contrôle (toujours en mémoire, sans stockage). »
+**Écart mineur ouvert.** La liste « Dernières décisions » repart de zéro à chaque nouveau rapport, au lieu de garder les 3 dernières de la session. Le correctif a été tapé dans Lovable le 01/10 à 20:53, mais **les crédits Lovable sont épuisés** (fenêtre « Passer à Pro »), donc il n'est pas appliqué : le texte attend dans la zone de saisie. À envoyer dès que les crédits se rechargent, ou à appliquer en local (module C) :
+
+> Remonte l'état « Dernières décisions » du composant RapportControleActions au niveau de la page /verifier-resultat (par ex. useState dans le composant de la route, passé en props), pour qu'il garde les 3 dernières décisions de la session même après un nouveau contrôle de l'agent ; chaque entrée affiche aussi le numéro du certificat : « CE-xxxx — Approuvé par <nom> le <date heure> ». Toujours uniquement en mémoire (pas de localStorage, pas de base de données, pas d'appel serveur). Ne modifie rien d'autre.
+
+**Variabilité du modèle (à connaître pour la démo).** Le même certificat T2, rejoué 3 fois, a donné un bilan de 11 · 1 · 1 · 2, puis de 12 · 0 · 1 · 2 (la mention M15 « personne qui autorise » est vue tantôt MANQUANTE, tantôt PRÉSENTE, car « Responsable technique (démo) » n'a pas de nom). Le verdict ⛔ et l'incohérence ETA-T-02 [MC-18] restent stables. Le badge et les compteurs suivent toujours la ligne Bilan.
+
+**Captures** : [T7, verdict rouge](captures/T7_F1_verdict_rouge.jpg) · [T8, verdict vert](captures/T8_F1_verdict_vert.jpg)
 
 ## 9. Reste à faire (équipe)
 
-1. ~~Envoyer les deux prompts Lovable~~ (fait le 01/10, 20:29 et 20:33). ~~T7, T8~~ (faits). Faire des captures de T7 et T8 pour le Journal.
-2. Optionnel : le correctif « Dernières décisions » (§8).
-3. **Publish → Update** dans Lovable, puis tester le lien public depuis un téléphone.
+1. ~~Envoyer les deux prompts Lovable~~ (fait le 01/10, 20:29 et 20:33). ~~T7, T8, T1–T6~~ (faits). ~~Captures T7 et T8~~ (dans `captures/`).
+2. Correctif « Dernières décisions » : cliquer sur ↑ dans Lovable quand les crédits sont rechargés (le prompt est déjà dans la zone de saisie), puis rejouer T7 et T8.
+3. **Publish → Update** dans Lovable (à faire vous-même, car la publication en production m'est bloquée), puis tester le lien public depuis un téléphone.
 4. Compléter la note du Journal L4 et la note d'éthique (§6).

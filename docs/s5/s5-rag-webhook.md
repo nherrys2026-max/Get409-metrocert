@@ -2,7 +2,9 @@
 
 > Séance 5 / 8 · Livrables : L1 MVP V2 en ligne avec webhook (30 pts) · L2 pipeline RAG, capture Dify (30 pts) · L3 schéma d'architecture V2 (20 pts) · L4 journal de prompts S5, min. 3 prompts (20 pts). Dépôt 48 h après la séance ; S6 = évaluation intermédiaire.
 
-## 0. État de l'application L1 (mis à jour le 29/09/2026, 19 h 20)
+> **Mise à jour du 01/10/2026** — l'état décrit au §0 est celui du 29/09. Depuis, le workflow est passé au **RAG à deux recherches** (base fixe `MetroCert_Regles_v1` + base recherchée `MetroCert_KB_v1`), les modèles sont sur Groq (`gpt-oss-120b` / `gpt-oss-20b`, reasoning low), la clé Dify est côté serveur (Lovable Cloud) et la batterie T1–T6 passe. Référence à jour : **[s5bis-rag-deux-recherches.md](s5bis-rag-deux-recherches.md)** · schéma : [architecture-v2-1.png](architecture-v2-1.png).
+
+## 0. État de l'application L1 (mis à jour le 29/09/2026, 19 h 20 — historique)
 
 | Élément | État |
 |---|---|
@@ -232,6 +234,11 @@ le bouton "Contrôler avec l'agent MetroCert" n'appelle pas l'API : il affiche a
 | P3 | Prompt structuré Lovable (adapté du modèle du cours) | Webhook `workflows/run`, `inputs.question`, `outputs.rapport_controle`, secret serveur `DIFY_API_KEY` | ✅ 30/09 : « Envoyer le tableau à l'agent » + « Contrôler avec l'agent MetroCert » ; rapport affiché en 15 à 30 s ; clé stockée côté serveur (Lovable Cloud) | 5/5 | Timeout 10 s → 30 s ; clé en secret serveur au lieu du navigateur |
 | P4 | Mode question RAG | « L'étalon ETA-T-02 peut-il être utilisé ? » | V1 : « Information non disponible » (le registre CSV ne remontait pas en recherche par mots-clés). V3 (registre réécrit avec le vocabulaire des questions) : « Non : Échu depuis le 31/08/2026, rompt la traçabilité (MC-18) ; utiliser ETA-T-05 » | 2/5 → 5/5 | Registre CSV → Markdown enrichi ; Top K 8 |
 | P5 | Test hors base | « Quelle est la météo demain à Dakar ? » | ✅ « INSUFFISANT : question sans instrument, mesure ou certificat » — aucune invention | 5/5 | — |
+| P6 | RAG à deux recherches (tutoriel S5) | Base fixe `MetroCert_Regles_v1` (MC, RD, registre) via ENV `requete_regles` + nœud Modèle Jinja2 | V1 : ETA-T-02 non détecté (registre absent du Top K 8). V2 : « Utilisation d'un étalon expiré ETA-T-02 (échéance 31/08/2026) pour un étalonnage réalisé le 25/09/2026 — MC-18 » | 1/5 → 5/5 | Registre ajouté à la base fixe ; mots-clés forcés |
+| P7 | Règle métier explicite | RÉDACTEUR : « si étalon échu, la PROCHAINE ÉTAPE commence par Refaire l'étalonnage avec un étalon valide (ex. ETA-T-05) » | V1 : demandait seulement de compléter la signature. V2 : reprise de l'étalonnage en première action | 3/5 → 5/5 | — |
+| P8 | Interdit + raison + sortie exacte (S5+ §2.4) | CHERCHEUR : M9 unités mixtes / M10 U sans unité → À VÉRIFIER, jamais de conversion ; zéros de tête non significatifs | V1 : M9 PRÉSENT malgré « 109 psi » ; puis fausse incohérence « 0,012 a plus de 2 chiffres significatifs ». V2 : M9 et M10 À VÉRIFIER, aucune conversion | 3/5 → 5/5 | 3 itérations (T4) |
+| P9 | Format imposé (T6) | RÉDACTEUR : rubriques ❌ / ⚠️ toujours présentes, un point dans une seule rubrique, dernière ligne fixe | Règles suivies une fois sur deux par gpt-oss-20b (doublons dans 🔎, liste « présentes » recopiée de l'exemple) | 2/5 → 4/5 | Exemple fixe remplacé par un gabarit ; complété par P10 |
+| P10 | Code déterministe (nœuds Nettoyage) | BILAN recalculé depuis M1–M15 ; 🔎 dédoublonné (garde étalon échu, EMT, dates) | T1 : M13 compté MANQUANT et NON APPLICABLE (total 16) → corrigé ; T4 : 🔎 « Aucune détectée » | 5/5 | Leçon : ce que le modèle ne fait pas de façon stable va dans le code |
 
 **Incident du 30/09 — crédits d'essai Dify épuisés** (OpenAI gpt-4.1 : 196/200 messages). Les deux agents sont passés sur la clé Groq de l'équipe (`openai/gpt-oss-120b`, gratuit). Effets secondaires corrigés : le modèle affichait son raisonnement `<think>…</think>` et du gras Markdown → deux nœuds Code « Nettoyage » ajoutés après le CHERCHEUR et le RÉDACTEUR ; `max_tokens` 1 500 tronquait la réponse → 3 000 pour le CHERCHEUR. Limite : le palier gratuit Groq accepte environ une requête par minute (erreur 429 si on enchaîne) — à dire au jury et à prévoir dans le plan B.
 
@@ -245,4 +252,6 @@ Pour chaque prompt : texte exact (copier depuis ce document), résumé de la ré
 - **Données périmées** : le registre des étalons est daté (statut au 29/09/2026). Un registre non mis à jour ferait valider un étalon échu → à terme, le registre doit venir de l'application, pas d'un CSV importé à la main.
 - **Confidentialité** : aucun certificat réel de client n'est envoyé à Dify (cloud hors Sénégal) pendant le prototype ; données fictives uniquement.
 - **Transparence des limites** : réponse « hors base » imposée ; l'agent n'approuve jamais, il signale.
-- **Clé API côté client** : risque d'usage abusif du quota ; fonction serveur prévue en V3.
+- **Clé API côté serveur** (corrigé le 30/09) : l'appel Dify passe par la fonction serveur `controle-certificat` de Lovable Cloud, secret `DIFY_API_KEY` ; la clé n'apparaît plus dans le navigateur ni dans le dépôt.
+- **Registre daté et envoyé en entier** (01/10) : le registre des étalons fait partie de la base fixe, transmise à chaque contrôle → un étalon échu est toujours vu (test T2).
+- **Dépendance au fournisseur** : palier gratuit Groq (8 000 jetons/min par modèle) → un contrôle par minute ; plan B « Mode démo » ; alternative documentée : clé Gemini (AI Studio).

@@ -189,4 +189,12 @@ Détail : [s5/s5-rag-webhook.md](s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--
 | P1 | Prompt système + RAG | Nœud CHERCHEUR : contrôle MC-01 à MC-22 |
 | P2 | Format de sortie imposé | Nœud RÉDACTEUR : rapport de contrôle |
 | P3 | Prompt structuré Lovable | Webhook `workflows/run` |
-| P4 | Test de cohérence hors base | Question météo |
+| P4 | Mode question RAG | Registre des étalons (ETA-T-02) |
+| P5 | Test de cohérence hors base | Question météo |
+| P6 | RAG à deux recherches | Base fixe MC + RD + registre |
+| P7 | Règle métier explicite | Étalon échu → refaire l'étalonnage |
+| P8 | Interdit + raison + sortie exacte | Unités mixtes, U sans unité, chiffres significatifs |
+| P9 | Format imposé | Rubriques fixes, un point par rubrique |
+| P10 | Code déterministe | Bilan recalculé, incohérences dédoublonnées |
+
+Tests de non-régression T1–T6 : [s5/s5bis-rag-deux-recherches.md §5](s5/s5bis-rag-deux-recherches.md).

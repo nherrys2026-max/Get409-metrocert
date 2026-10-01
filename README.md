@@ -58,14 +58,15 @@ Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md
 
 | Livrable | Fichier / lien | Statut |
 | --- | --- | --- |
-| **L1 · MVP V2 avec webhook** (30 pts) | URL lovable.app : _à renseigner_ | ⏳ |
-| **L2 · Pipeline RAG** (30 pts) | Base `MetroCert_KB_v1` : [docs/s5/kb/](docs/s5/kb/) · capture Dify à ajouter | ⏳ |
-| **L3 · Schéma d'architecture V2** (20 pts) | [docs/s5/architecture-v2.png](docs/s5/architecture-v2.png) | ✅ |
-| **L4 · Journal de prompts S5** (min. 3) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ⏳ résultats à noter |
+| **L1 · MVP V2 avec webhook** (30 pts) | MVP Lovable, page « Vérifier un résultat » → carte « Agent IA MetroCert » ; appel par la fonction serveur `controle-certificat` (secret `DIFY_API_KEY`). URL publique lovable.app : _à renseigner_ | ✅ testé le 01/10 |
+| **L2 · Pipeline RAG** (30 pts) | RAG à deux recherches : base fixe `MetroCert_Regles_v1` ([kb/fixe/](docs/s5/kb/fixe/)) + base recherchée `MetroCert_KB_v1` — [docs/s5/s5bis-rag-deux-recherches.md](docs/s5/s5bis-rag-deux-recherches.md) · captures Dify à ajouter | ⏳ captures |
+| **L3 · Schéma d'architecture V2.1** (20 pts) | [docs/s5/architecture-v2-1.png](docs/s5/architecture-v2-1.png) (V2 initiale : [architecture-v2.png](docs/s5/architecture-v2.png)) | ✅ |
+| **L4 · Journal de prompts S5** (10 prompts) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ✅ |
+| **Tests de non-régression T1–T6** (S5+, module B) | [docs/s5/s5bis-rag-deux-recherches.md §5](docs/s5/s5bis-rag-deux-recherches.md#5-batterie-de-tests-t1t6-module-b) | ✅ 6/6 (v2.3) |
 
-Agent Dify S3 (L1) : [GreenSprint_FicheMarche_v1_[HERRYSTEAM]](https://udify.app/workflow/QXaHDWAvm4XwbX8c), dupliqué en `MetroCert_ControleCertificat_v2` pour le contrôle de complétude des certificats (ISO/IEC 17025 §7.8).
+Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — version publiée **« v2.3 bilan doublons »** (01/10/2026) — CHERCHEUR Groq `gpt-oss-120b`, RÉDACTEUR Groq `gpt-oss-20b` (reasoning low). Limite du palier gratuit Groq : un contrôle par minute.
 
-![Architecture V2](docs/s5/architecture-v2.png)
+![Architecture V2.1](docs/s5/architecture-v2-1.png)
 
 ## Structure du dépôt
 
@@ -88,7 +89,11 @@ GET409-MetroCert/
     ├── s4/
     │   └── s4-mvp-lovable.md    ← S4 · prompts Lovable, journal, note d'itération
     └── s5/
-        ├── s5-rag-webhook.md    ← S5 · RAG, workflow Dify, webhook, tests, plan B
-        ├── architecture-v2.svg/.png ← S5 · L3
-        └── kb/                  ← S5 · documents de la base MetroCert_KB_v1
+        ├── s5-rag-webhook.md          ← S5 · RAG, webhook, journal de prompts, plan B
+        ├── s5bis-rag-deux-recherches.md ← S5 bis · base fixe, workflow publié, tests T1–T6, versions
+        ├── architecture-v2-1.png/.html ← S5 · L3 (schéma à jour) ; architecture-v2.* = V2 initiale
+        ├── prompts/                   ← prompts SYSTEM publiés (CHERCHEUR, RÉDACTEUR)
+        ├── code/                      ← nœuds Code Dify (Nettoyage CHERCHEUR / RÉDACTEUR)
+        ├── captures/                  ← captures L1 / L4
+        └── kb/                        ← base recherchée MetroCert_KB_v1 (+ fixe/ : base MetroCert_Regles_v1)
 ```

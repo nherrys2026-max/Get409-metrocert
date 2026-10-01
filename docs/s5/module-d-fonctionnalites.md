@@ -130,11 +130,25 @@ Puis **rejouer T1–T6** dans le MVP (1 contrôle par minute, quota Groq) et rec
 
 | Séance | Prompt | Outil | Résultat | Note /5 |
 |---|---|---|---|:-:|
-| S5+ module D | P-Idées puis P-Spec (§5.4) adaptés à MetroCert, puis le prompt Lovable du §4 | Claude, Lovable | 3 fonctionnalités notées (F1 24/25, F3 19/25, F2 15/25) ; F1 retenue et spécifiée ; T7–T8 écrits | à compléter après T7–T8 |
+| S5+ module D | P-Idées puis P-Spec (§5.4) adaptés à MetroCert, puis le prompt Lovable du §4 | Claude, Lovable | 3 fonctionnalités notées (F1 24/25, F3 19/25, F2 15/25) ; F1 implémentée en 1 prompt Lovable ; T7 ✅, T8 ✅ (aperçu, 01/10/2026 20:46–20:49) | 4/5 (historique remis à zéro à chaque nouveau rapport) |
 
-## 8. Reste à faire (équipe)
+## 8. Résultats (aperçu Lovable, 01/10/2026)
 
-1. Dans Lovable : envoyer d'abord le brouillon en cours (correctif du menu mobile), **puis** coller le prompt du §4 seul.
-2. Lancer T7, puis T8, puis rejouer T1–T6, à 1 minute d'intervalle. Faire des captures sans aucune clé visible.
+Le prompt du §4 a été envoyé dans Lovable à 20:33, juste après le correctif du menu mobile. Lovable a créé le bloc dans `src/routes/verifier-resultat.tsx`, sans modifier ni la fonction serveur ni l'appel Dify. L'entrée se colle dans la zone de texte de la carte, puis on clique sur « Contrôler avec l'agent MetroCert ».
+
+| Test | Résultat observé | Statut |
+|---|---|:-:|
+| T7 (entrée de T2, CE-2026-0215) | Badge rouge « À corriger avant approbation » et compteurs 11 · 1 · 1 · 2 (identiques à la ligne Bilan). Incohérence ETA-T-02 échu [MC-18] ; la prochaine étape commence par « Refaire l'étalonnage avec un étalon valide ». « Renvoyer au technicien » présent : code `mailto:?subject=MetroCert – corrections certificat <n°>&body=<❌ ⚠️ 🔎 PROCHAINE ÉTAPE + ligne finale>`, sans destinataire. « Approuver » reste grisé avec le nom seul et ne s'active qu'avec le nom et la case ; il affiche alors « Approuvé par Responsable démo le 1 octobre 2026 à 20:46 ». | ✅ |
+| T8-1 (entrée de T1, CE-2026-0230) | Badge vert « Prêt pour approbation » et compteurs 14 · 0 · 0 · 1. Ni bouton « Renvoyer » ni case à cocher ; « Approuver » s'active avec le nom seul. | ✅ |
+| T8-2 (entrée de T3) | `INSUFFISANT : Aucun texte de certificat…` affiché seul, sans badge ni bouton. | ✅ |
+| Rechargement | Aucune décision affichée ; `localStorage` vide. | ✅ |
+| T1, T2, T3 (non-régression) | Rejoués par l'app pendant T7–T8 : verdicts identiques à la v2.3. T4–T6 non rejoués, car l'agent Dify n'a pas changé (pas de republication). | ✅ |
+
+**Écart mineur.** La liste « Dernières décisions » repart de zéro à chaque nouveau rapport, au lieu de garder les 3 dernières de la session. Correctif possible (1 prompt Lovable) : « Remonte l'état "Dernières décisions" du composant RapportControleActions au niveau de la page /verifier-resultat pour qu'il garde les 3 dernières décisions de la session, même après un nouveau contrôle (toujours en mémoire, sans stockage). »
+
+## 9. Reste à faire (équipe)
+
+1. ~~Envoyer les deux prompts Lovable~~ (fait le 01/10, 20:29 et 20:33). ~~T7, T8~~ (faits). Faire des captures de T7 et T8 pour le Journal.
+2. Optionnel : le correctif « Dernières décisions » (§8).
 3. **Publish → Update** dans Lovable, puis tester le lien public depuis un téléphone.
 4. Compléter la note du Journal L4 et la note d'éthique (§6).

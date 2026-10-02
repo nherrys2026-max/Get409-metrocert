@@ -82,7 +82,7 @@ Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — ver
 | Livrable | Fichier | Statut |
 | --- | --- | --- |
 | **Script vidéo** (4 actes × 15 s, voix off, prompts Kling AI) | [docs/s7/script-video-s7.md](docs/s7/script-video-s7.md) | ✅ prêt |
-| **L2 · Vidéo teaser** MP4 65 s, 1080p 16:9, sous-titres incrustés | [livrables/GET409-MetroCert_Teaser_S7.mp4](livrables/GET409-MetroCert_Teaser_S7.mp4) · lien Drive : _à renseigner_ | ✅ produite · ⏳ dépôt Drive + e-Academy |
+| **L2 · Vidéo teaser** MP4 65 s, 1080p 16:9, sous-titres incrustés | [livrables/GET409-MetroCert_Teaser_S7.mp4](livrables/GET409-MetroCert_Teaser_S7.mp4) · [lien Google Drive](https://drive.google.com/file/d/1gI_Ak2emOm36pjlflTOwdkzD3H-qjSu0/view?usp=sharing) | ✅ produite · déposée sur Drive (02/10) |
 
 Lien de démo : **[pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat)**
 

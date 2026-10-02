@@ -105,3 +105,19 @@ INSUFFISANT : Aucun texte de certificat ou relevé d'étalonnage fourni pour eff
 ### Réponse enregistrée à « Envoyer le tableau à l'agent » (exemple du manomètre, 02/10/2026, 02:22)
 
 Verdict ⛔ ; Bilan 2 présentes · 11 manquantes · 1 à vérifier · 1 non applicable : le tableau seul ne contient ni numéro de certificat, ni laboratoire, ni client, ni étalon ; M10 « U indiqué sans unité » à vérifier. Prochaine étape : compléter M1 à M8, M11, M12, M15 et préciser l'unité et le facteur k de U.
+
+## Répétition technique (site public, 02/10/2026, 05:33)
+
+Parcours complet de la démo rejoué sur https://pixel-perfect-capture-0446.lovable.app, dans l'ordre du déroulé.
+
+| Étape | Résultat | Statut |
+|---|---|:-:|
+| Accueil → « Vérifier un résultat » | Page chargée en 1,5 s | ✅ |
+| Charger l'exemple, acceptation simple | 5 points conformes | ✅ |
+| Zone de garde w = U | 7,50 bar et 10,00 bar non conformes (\|E\| + U = 0,112 bar > EMT 0,10 bar) | ✅ |
+| Entrée A → agent | Réponse en **7,6 s** ; ⛔ ; bilan 11 · 2 · 0 · 2 ; ETA-T-02 échu signalé ; ETA-T-05 proposé ; badge rouge ; « Renvoyer au technicien » présent ; « Approuver » grisé | ✅ |
+| Approbation (nom + case) | « CE-2026-0215 — Approuvé par Responsable démo le 2 octobre 2026 à 05:34 » | ✅ |
+| Pause quota (60 s) puis entrée B | `INSUFFISANT : Aucun texte de certificat…`, pas de badge, décision précédente toujours listée | ✅ |
+| Dify → Studio | Workflow `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` présent (édité le 01/10 à 19:56) | ✅ |
+
+Durée technique mesurée : environ 1 min 35 s de manipulations, pause quota comprise. Le reste des 10 minutes est le discours : prévoir de parler pendant l'attente de l'agent et pendant la pause d'une minute.

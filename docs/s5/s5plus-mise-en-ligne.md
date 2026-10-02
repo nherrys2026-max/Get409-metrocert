@@ -8,7 +8,7 @@
 
 - Projet Lovable « Pixel Perfect Pixels », première publication le 02/10/2026 vers 02:15.
 - Mise à jour publiée à 03:01 : liste « Dernières décisions » conservée entre deux contrôles.
-- Correctif appliqué dans Lovable le 02/10 vers 04:00, **à publier** (Publish → « Publier les modifications ») : liste visible même après une réponse INSUFFISANT, « N° manquant » pour un certificat sans numéro.
+- Mise à jour publiée vers 04:25 : liste visible même après une réponse INSUFFISANT, « N° manquant » pour un certificat sans numéro (vérifié sur le site public à 04:30).
 - Visibilité : toute personne disposant du lien.
 
 ## Tests sur le site public (02/10/2026)
@@ -25,6 +25,7 @@ Contrôles espacés d'1 minute (quota Groq gratuit : 8 000 jetons/min, ≈ 5 300
 | T8 persistance | PC (~03:07) | Nouveau contrôle complet | Nouveau rapport ⛔ et la décision de 03:03 **toujours listée**. | ✅ |
 | Rechargement | PC (~03:08) | F5 | Liste vide ; `localStorage` vide ; `sessionStorage` ne contient que la position de défilement du routeur. | ✅ |
 | T2 (public) | PC (03:52) | Certificat fictif complet CE-2026-0215, Pt100, étalon ETA-T-02 ([texte](../s6/demo-s6.md#entrée-a--certificat-avec-étalon-échu-t2)) | ⛔ ; Bilan 13 · 0 · 0 · 2 ; 🔎 « ETA-T-02 … statut Échu (échéance 31/08/2026) … [MC-18] » ; prochaine étape « Refaire l'étalonnage avec un étalon valide du registre (ex. ETA-T-05) ». Après approbation : « CE-2026-0215 — Approuvé par… » (pas de doublon « CE-CE- »). | ✅ |
+| Correctif d'affichage | PC (04:30–04:32) | Exemple du tableau, approbation, puis entrée de T3 | « N° manquant — Approuvé par Responsable démo le 2 octobre 2026 à 04:30 » ; après `INSUFFISANT`, la liste reste affichée, sans badge ni bouton. | ✅ |
 
 Captures : [T7](captures/T7_F1_verdict_rouge.jpg) · [T8](captures/T8_F1_verdict_vert.jpg) · téléphone Android, 02/10 02:29 : [rapport](captures/L1_mobile_android_rapport.jpg) · [badge F1](captures/L1_mobile_android_F1_badge.jpg).
 

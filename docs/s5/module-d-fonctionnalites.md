@@ -158,6 +158,6 @@ Le prompt du §4 a été envoyé dans Lovable à 20:33, juste après le correcti
 2. ~~Correctif « Dernières décisions »~~ : appliqué et publié le 02/10 à 03:01 ; T7, T8 et rechargement réussis sur le site public.
 3. ~~Publish et test du lien public depuis un téléphone~~ : https://pixel-perfect-capture-0446.lovable.app (Android, 02/10 02:29).
 4. ~~Journal L4 et note d'éthique~~ : [../journal-prompts.md](../journal-prompts.md) et [../s6/note-ethique-s6.md](../s6/note-ethique-s6.md).
-5. Correctif d'affichage (liste visible après INSUFFISANT, « N° manquant ») : appliqué dans Lovable, **à publier**.
+5. ~~Correctif d'affichage (liste visible après INSUFFISANT, « N° manquant »)~~ : publié et vérifié sur le site public le 02/10 à 04:30.
 
 Détail des tests sur le site public : [s5plus-mise-en-ligne.md](s5plus-mise-en-ligne.md).

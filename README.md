@@ -77,6 +77,13 @@ Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — ver
 | **Plan B** (panne API) | [docs/s6/demo-s6.md#plan-b](docs/s6/demo-s6.md#plan-b) — réponses réelles enregistrées sur le site public | ✅ |
 | **Note d'éthique IA** (biais RAG, confidentialité, impact socio-économique) | [docs/s6/note-ethique-s6.md](docs/s6/note-ethique-s6.md) | ✅ |
 
+## S7 — Vidéo teaser
+
+| Livrable | Fichier | Statut |
+| --- | --- | --- |
+| **Script vidéo** (4 actes × 15 s, voix off, prompts Kling AI) | [docs/s7/script-video-s7.md](docs/s7/script-video-s7.md) | ✅ prêt |
+| **L2 · Vidéo teaser** MP4 60–90 s, 16:9, sous-titres | Lien Drive : _à renseigner_ | ⏳ montage |
+
 Lien de démo : **[pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat)**
 
 ## Structure du dépôt
@@ -112,4 +119,6 @@ GET409-MetroCert/
     └── s6/
         ├── demo-s6.md                 ← S6 · script de démo 10 min + plan B
         └── note-ethique-s6.md         ← S6 · note d'éthique IA (1 page)
+    └── s7/
+        └── script-video-s7.md         ← S7 · script du teaser, prompts Kling, montage CapCut
 ```

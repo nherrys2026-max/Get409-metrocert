@@ -1,6 +1,6 @@
 # Module D (S5+) : fonctionnalité IA innovante MetroCert
 
-> GET 409 · Tutoriel S5+ §5 · Équipe MetroCert (I. NKOUNKOU, M. S. COULIBALY) · 01/10/2026
+> GET 409 · Tutoriel S5+ §5 · Équipe MetroCert (I. NKOUNKOU) · 01/10/2026
 > Point de départ : agent **v2.3** publié, T1–T6 réussis ([`s5bis-rag-deux-recherches.md`](s5bis-rag-deux-recherches.md)).
 
 ## 1. Point de départ : HMW et douleurs ciblées
@@ -152,9 +152,12 @@ Le prompt du §4 a été envoyé dans Lovable à 20:33, juste après le correcti
 
 **Captures** : [T7, verdict rouge](captures/T7_F1_verdict_rouge.jpg) · [T8, verdict vert](captures/T8_F1_verdict_vert.jpg)
 
-## 9. Reste à faire (équipe)
+## 9. Suivi (mis à jour le 02/10/2026)
 
-1. ~~Envoyer les deux prompts Lovable~~ (fait le 01/10, 20:29 et 20:33). ~~T7, T8, T1–T6~~ (faits). ~~Captures T7 et T8~~ (dans `captures/`).
-2. Correctif « Dernières décisions » : cliquer sur ↑ dans Lovable quand les crédits sont rechargés (le prompt est déjà dans la zone de saisie), puis rejouer T7 et T8.
-3. **Publish → Update** dans Lovable (à faire vous-même, car la publication en production m'est bloquée), puis tester le lien public depuis un téléphone.
-4. Compléter la note du Journal L4 et la note d'éthique (§6).
+1. ~~Envoyer les deux prompts Lovable, T7, T8, T1–T6, captures T7 et T8~~ (01/10).
+2. ~~Correctif « Dernières décisions »~~ : appliqué et publié le 02/10 à 03:01 ; T7, T8 et rechargement réussis sur le site public.
+3. ~~Publish et test du lien public depuis un téléphone~~ : https://pixel-perfect-capture-0446.lovable.app (Android, 02/10 02:29).
+4. ~~Journal L4 et note d'éthique~~ : [../journal-prompts.md](../journal-prompts.md) et [../s6/note-ethique-s6.md](../s6/note-ethique-s6.md).
+5. Correctif d'affichage (liste visible après INSUFFISANT, « N° manquant ») : appliqué dans Lovable, **à publier**.
+
+Détail des tests sur le site public : [s5plus-mise-en-ligne.md](s5plus-mise-en-ligne.md).

@@ -200,3 +200,23 @@ Détail : [s5/s5-rag-webhook.md](s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--
 Tests de non-régression T1–T6 : [s5/s5bis-rag-deux-recherches.md §5](s5/s5bis-rag-deux-recherches.md).
 
 Module D (S5+) — prompts P-Idées et P-Spec, prompt Lovable de F1, tests T7–T8 : [s5/module-d-fonctionnalites.md](s5/module-d-fonctionnalites.md).
+
+# Journal de prompts — S5+ (module S5+)
+
+Tutoriel GET409 S5+ appliqué à MetroCert (modules A, B, D, F). Détail et preuves : [s5/s5plus-mise-en-ligne.md](s5/s5plus-mise-en-ligne.md).
+
+| Date | Prompt ou action | Outil | Résultat | Note /5 |
+|---|---|---|---|:-:|
+| 02/10 ~04:00 | « Sur la page /verifier-resultat, affiche la liste « Dernières décisions » en permanence… si le numéro… commence par « MANQUANT », affiche « N° manquant »… Ne modifie rien d'autre. » | Lovable | Correctif appliqué dans Lovable ; publication à faire | 4/5 |
+| 02/10 03:52 | Entrée T2 complète (CE-2026-0215, étalon ETA-T-02) sur le lien public | Site public | Étalon échu détecté [MC-18], ETA-T-05 proposé ; numéro correct dans « Dernières décisions » | 5/5 |
+| 02/10 03:48 | Clé Gemini AI Studio (projet `metrocert`) ajoutée dans Dify comme secours | AI Studio, Dify | `Gemini_MetroCert` point vert ; workflow inchangé (Groq) | 5/5 |
+| 02/10 03:01 | « Remonte l'état « Dernières décisions » du composant RapportControleActions au niveau de la page /verifier-resultat… Ne modifie rien d'autre. » puis Publish → Update | Lovable | Décisions conservées entre deux contrôles ; rien de persisté après rechargement (T7, T8 sur le site public) | 4/5 |
+| 02/10 02:15 | Première publication Lovable, puis tests T3 et F1 sur le lien public (PC et téléphone Android) | Lovable, Claude | Site public opérationnel ; secret `DIFY_API_KEY` présent en production | 5/5 |
+| 01/10 20:33 | Prompt Lovable F1 (badge, compteurs, « Renvoyer au technicien », « Approbation ») | Lovable | F1 en place sans toucher à la fonction serveur ; T7–T8 en aperçu | 4/5 |
+| 01/10 | P-Idées puis P-Spec (tutoriel §5.4) adaptés à MetroCert | Claude | F1 24/25, F3 19/25, F2 15/25 ; F1 retenue | 5/5 |
+
+Leçon : quand une consigne n'est pas suivie de façon stable par le modèle (comptage, dédoublonnage), la déplacer dans un nœud Code plutôt que d'ajouter des règles au prompt ; et ne jamais coller une clé API dans une capture (clé exposée = clé supprimée et recréée).
+
+# S6 — Démo et note d'éthique
+
+Script de démo 10 min + plan B : [s6/demo-s6.md](s6/demo-s6.md) · Note d'éthique : [s6/note-ethique-s6.md](s6/note-ethique-s6.md).

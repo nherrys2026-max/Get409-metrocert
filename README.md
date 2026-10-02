@@ -6,10 +6,9 @@
 
 | Prénom Nom | Rôle | GitHub |
 |---|---|---|
-| Ivon NKOUNKOU | Chef de Produit (PM) · Dev UI (No-Code) | @nherrys2026-max |
-| Maimouna Sira COULIBALY | Master Prompt Engineer · Responsable Impact & Éthique | coulibalymaimounasira@gmail.com |
+| Ivon NKOUNKOU | Chef de Produit (PM) · Dev UI (No-Code) · Prompt Engineer · Responsable Impact & Éthique | @nherrys2026-max |
 
-Contacts GitHub de l'équipe : nherrys2026@gmail.com · coulibalymaimounasira@gmail.com
+Contact GitHub de l'équipe : nherrys2026@gmail.com
 
 ## Notre défi
 
@@ -47,7 +46,7 @@ Par rapport à la S1, le HMW définitif garde un seul utilisateur principal (le 
 
 | Livrable | Fichier / lien | Statut |
 | --- | --- | --- |
-| **L1 · MVP V1 en ligne** (35 pts) | URL lovable.app : _à renseigner_ | ⏳ |
+| **L1 · MVP V1 en ligne** (35 pts) | [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) | ✅ |
 | **L2 · Projet Lovable public + README** (25 pts) | Dépôt du code : _à renseigner_ | ⏳ |
 | **L3 · Journal de prompts S4** (init + 3 itérations) | [docs/s4/s4-mvp-lovable.md §4](docs/s4/s4-mvp-lovable.md#4-journal-de-prompts-s4-l3--min-4-prompts) | ⏳ résultats à noter |
 | **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page-brouillon-à-ajuster) | ⏳ captures à faire |
@@ -58,16 +57,27 @@ Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md
 
 | Livrable | Fichier / lien | Statut |
 | --- | --- | --- |
-| **L1 · MVP V2 avec webhook** (30 pts) | MVP Lovable, page « Vérifier un résultat » → carte « Agent IA MetroCert » ; appel par la fonction serveur `controle-certificat` (secret `DIFY_API_KEY`). URL publique lovable.app : _à renseigner_ | ✅ testé le 01/10 |
+| **L1 · MVP V2 avec webhook** (30 pts) | MVP Lovable, page « Vérifier un résultat » → carte « Agent IA MetroCert » ; appel par la fonction serveur `controle-certificat` (secret `DIFY_API_KEY`). URL publique : [pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat) | ✅ testé en ligne le 02/10 (PC + Android) |
 | **L2 · Pipeline RAG** (30 pts) | RAG à deux recherches : base fixe `MetroCert_Regles_v1` ([kb/fixe/](docs/s5/kb/fixe/)) + base recherchée `MetroCert_KB_v1` — [docs/s5/s5bis-rag-deux-recherches.md](docs/s5/s5bis-rag-deux-recherches.md) · captures Dify à ajouter | ⏳ captures |
 | **L3 · Schéma d'architecture V2.1** (20 pts) | [docs/s5/architecture-v2-1.png](docs/s5/architecture-v2-1.png) (V2 initiale : [architecture-v2.png](docs/s5/architecture-v2.png)) | ✅ |
 | **L4 · Journal de prompts S5** (10 prompts) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ✅ |
 | **Tests de non-régression T1–T6** (S5+, module B) | [docs/s5/s5bis-rag-deux-recherches.md §5](docs/s5/s5bis-rag-deux-recherches.md#5-batterie-de-tests-t1t6-module-b) | ✅ 6/6 (v2.3) |
-| **Fonctionnalité IA innovante** (S5+, module D) | 3 propositions notées (F1 24/25 · F3 19/25 · F2 15/25), F1 « validation et renvoi au technicien » implémentée dans Lovable, tests T7–T8 — [docs/s5/module-d-fonctionnalites.md](docs/s5/module-d-fonctionnalites.md) | ✅ T7–T8 (aperçu) · ⏳ Publish |
+| **Mise en ligne, tests publics, secours Gemini** (S5+, modules A et F) | [docs/s5/s5plus-mise-en-ligne.md](docs/s5/s5plus-mise-en-ligne.md) — clé de secours `Gemini_MetroCert` dans Dify, bascule en 2 min | ✅ |
+| **Fonctionnalité IA innovante** (S5+, module D) | 3 propositions notées (F1 24/25 · F3 19/25 · F2 15/25), F1 « validation et renvoi au technicien » implémentée dans Lovable, tests T7–T8 — [docs/s5/module-d-fonctionnalites.md](docs/s5/module-d-fonctionnalites.md) | ✅ T7–T8 sur le site public (02/10) |
 
 Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — version publiée **« v2.3 bilan doublons »** (01/10/2026) — CHERCHEUR Groq `gpt-oss-120b`, RÉDACTEUR Groq `gpt-oss-20b` (reasoning low). Limite du palier gratuit Groq : un contrôle par minute.
 
 ![Architecture V2.1](docs/s5/architecture-v2-1.png)
+
+## S6 — Évaluation intermédiaire
+
+| Élément | Fichier | Statut |
+| --- | --- | --- |
+| **Démo 10 min** (C1 MVP /4 · C2 architecture /2 · C3 clarté /2) | [docs/s6/demo-s6.md](docs/s6/demo-s6.md) — déroulé minuté, entrées à coller, questions du jury | ✅ prêt |
+| **Plan B** (panne API) | [docs/s6/demo-s6.md#plan-b](docs/s6/demo-s6.md#plan-b) — réponses réelles enregistrées sur le site public | ✅ |
+| **Note d'éthique IA** (biais RAG, confidentialité, impact socio-économique) | [docs/s6/note-ethique-s6.md](docs/s6/note-ethique-s6.md) | ✅ |
+
+Lien de démo : **[pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat)**
 
 ## Structure du dépôt
 
@@ -93,9 +103,13 @@ GET409-MetroCert/
         ├── s5-rag-webhook.md          ← S5 · RAG, webhook, journal de prompts, plan B
         ├── s5bis-rag-deux-recherches.md ← S5 bis · base fixe, workflow publié, tests T1–T6, versions
         ├── module-d-fonctionnalites.md ← S5+ module D · 3 fonctionnalités notées, spec F1, T7–T8
+        ├── s5plus-mise-en-ligne.md    ← S5+ · lien public, tests en ligne, secours Gemini, check-list
         ├── architecture-v2-1.png/.html ← S5 · L3 (schéma à jour) ; architecture-v2.* = V2 initiale
         ├── prompts/                   ← prompts SYSTEM publiés (CHERCHEUR, RÉDACTEUR)
         ├── code/                      ← nœuds Code Dify (Nettoyage CHERCHEUR / RÉDACTEUR)
         ├── captures/                  ← captures L1 / L4
         └── kb/                        ← base recherchée MetroCert_KB_v1 (+ fixe/ : base MetroCert_Regles_v1)
+    └── s6/
+        ├── demo-s6.md                 ← S6 · script de démo 10 min + plan B
+        └── note-ethique-s6.md         ← S6 · note d'éthique IA (1 page)
 ```

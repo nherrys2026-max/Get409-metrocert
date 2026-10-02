@@ -50,5 +50,5 @@ Précautions : les clips Kling sont des illustrations, à mêler aux **vraies ca
 - [x] Sous-titres présents et vérifiés
 - [x] Voix off audible et synchronisée (synthèse ; voix humaine possible dans CapCut)
 - [x] Aucune donnée réelle de client ni clé API visible à l'écran
-- [x] Upload Google Drive : [https://drive.google.com/file/d/1gI_Ak2emOm36pjlflTOwdkzD3H-qjSu0/view?usp=sharing](https://drive.google.com/file/d/1gI_Ak2emOm36pjlflTOwdkzD3H-qjSu0/view?usp=sharing)
+- [ ] Upload Google Drive, lien « Tous les utilisateurs disposant du lien »
 - [ ] Dépôt e-Academy (livrable L2)

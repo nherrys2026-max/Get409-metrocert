@@ -10,6 +10,18 @@
 
 Contact GitHub de l'équipe : nherrys2026@gmail.com
 
+## État du projet (02/10/2026)
+
+| Séance | État |
+| --- | --- |
+| S1–S2 · Carte d'empathie, HMW, VPC | ✅ |
+| S4 · MVP Lovable | ✅ en ligne : [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) |
+| S5 · Agent Dify RAG + webhook | ✅ tests T1–T8 réussis sur le site public |
+| S6 · Démo + note d'éthique | ✅ prêtes, répétition technique faite le 02/10 — [demo-s6.md](docs/s6/demo-s6.md) |
+| S7 · Vidéo teaser | ✅ [MP4](livrables/GET409-MetroCert_Teaser_S7.mp4) · [Drive](https://drive.google.com/file/d/1MZlczOea9-hb6dAhMX_aC0hCcxFFewBT/view?usp=sharing) |
+
+Reste à faire par l'équipe : captures Dify (L2 S5), dépôts e-Academy, répétition orale de la démo.
+
 ## Notre défi
 
 **Secteur :** Industrie et qualité — métrologie et étalonnage des instruments de mesure (laboratoires d'étalonnage, services métrologie internes des industries agroalimentaire, pharmaceutique, pétrole et gaz, mines, BTP), Sénégal / zone UEMOA.
@@ -31,7 +43,7 @@ Par rapport à la S1, le HMW définitif garde un seul utilisateur principal (le 
 - [ ] Fiche équipe soumise (Google Forms + PDF sur e-Academy) — voir [docs/fiche-equipe.md](docs/fiche-equipe.md)
 - [x] Carte d'empathie — [carte-empathie.md](carte-empathie.md)
 - [x] Énoncé HMW — [hmw.md](hmw.md)
-- [ ] Compte Dify créé, workspace `GET409-MetroCert`
+- [x] Compte Dify créé (workflow `MetroCert_ControleCertificat_v1_[HERRYSTEAM]`)
 
 ## Livrables S2
 
@@ -47,9 +59,9 @@ Par rapport à la S1, le HMW définitif garde un seul utilisateur principal (le 
 | Livrable | Fichier / lien | Statut |
 | --- | --- | --- |
 | **L1 · MVP V1 en ligne** (35 pts) | [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) | ✅ |
-| **L2 · Projet Lovable public + README** (25 pts) | Dépôt du code : _à renseigner_ | ⏳ |
-| **L3 · Journal de prompts S4** (init + 3 itérations) | [docs/s4/s4-mvp-lovable.md §4](docs/s4/s4-mvp-lovable.md#4-journal-de-prompts-s4-l3--min-4-prompts) | ⏳ résultats à noter |
-| **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page-brouillon-à-ajuster) | ⏳ captures à faire |
+| **L2 · Projet Lovable public + README** (25 pts) | Projet Lovable « Pixel Perfect Pixels », site public [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) · README : ce dépôt · code non encore exporté vers GitHub | ✅ |
+| **L3 · Journal de prompts S4** (init + 3 itérations) | [docs/s4/s4-mvp-lovable.md §4](docs/s4/s4-mvp-lovable.md#4-journal-de-prompts-s4-l3--min-4-prompts) | ✅ 5 prompts notés |
+| **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page-brouillon-à-ajuster) | ✅ |
 
 Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md).
 
@@ -58,7 +70,7 @@ Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md
 | Livrable | Fichier / lien | Statut |
 | --- | --- | --- |
 | **L1 · MVP V2 avec webhook** (30 pts) | MVP Lovable, page « Vérifier un résultat » → carte « Agent IA MetroCert » ; appel par la fonction serveur `controle-certificat` (secret `DIFY_API_KEY`). URL publique : [pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat) | ✅ testé en ligne le 02/10 (PC + Android) |
-| **L2 · Pipeline RAG** (30 pts) | RAG à deux recherches : base fixe `MetroCert_Regles_v1` ([kb/fixe/](docs/s5/kb/fixe/)) + base recherchée `MetroCert_KB_v1` — [docs/s5/s5bis-rag-deux-recherches.md](docs/s5/s5bis-rag-deux-recherches.md) · captures Dify à ajouter | ⏳ captures |
+| **L2 · Pipeline RAG** (30 pts) | RAG à deux recherches : base fixe `MetroCert_Regles_v1` ([kb/fixe/](docs/s5/kb/fixe/)) + base recherchée `MetroCert_KB_v1` — [docs/s5/s5bis-rag-deux-recherches.md](docs/s5/s5bis-rag-deux-recherches.md) · 2 bases présentes dans Dify (vérifié le 02/10) · captures Dify à faire par l'équipe | ⏳ captures |
 | **L3 · Schéma d'architecture V2.1** (20 pts) | [docs/s5/architecture-v2-1.png](docs/s5/architecture-v2-1.png) (V2 initiale : [architecture-v2.png](docs/s5/architecture-v2.png)) | ✅ |
 | **L4 · Journal de prompts S5** (10 prompts) | [docs/s5/s5-rag-webhook.md](docs/s5/s5-rag-webhook.md#journal-de-prompts-s5-l4--min-3-prompts) | ✅ |
 | **Tests de non-régression T1–T6** (S5+, module B) | [docs/s5/s5bis-rag-deux-recherches.md §5](docs/s5/s5bis-rag-deux-recherches.md#5-batterie-de-tests-t1t6-module-b) | ✅ 6/6 (v2.3) |

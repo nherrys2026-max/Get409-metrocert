@@ -162,26 +162,29 @@ Identifie la cause, corrige uniquement le fichier concerné et explique en 2 phr
 
 ## 4. Journal de prompts S4 (L3 — min. 4 prompts)
 
-> À compléter après exécution : la colonne « Résultat observé » et la note doivent décrire ce que Lovable a réellement produit.
+> Complété le 02/10/2026 à partir de l'historique du projet Lovable « Pixel Perfect Pixels ». Le prompt d'initialisation (§1) précède la partie visible de l'historique : ses résultats sont décrits d'après le MVP obtenu (4 pages : Accueil, Prestations, Vérifier un résultat, Contact). Les notes sont celles de l'équipe, à ajuster si besoin.
 
-| # | Technique | Prompt | Résultat attendu | Résultat observé | Note /5 |
+| # | Date | Technique | Prompt (résumé) | Résultat observé dans Lovable | Note /5 |
 |---|---|---|---|---|:-:|
-| P1 | Prompt structuré (6 sections) | Initialisation §1 | 4 pages, formulaire en 4 blocs, calcul de E, badges selon la règle | _à compléter_ | |
-| P2 | Correctif ciblé | I1 format des nombres | Virgule décimale et espace avant l'unité partout | _à compléter_ | |
-| P3 | Few-Shot | I2 contrôle de complétude | Encadré « Mentions manquantes » bloquant l'aperçu | _à compléter_ | |
-| P4 | Correctif ciblé | I3 responsive | Hamburger, tableau défilant, boutons pleine largeur | _à compléter_ | |
+| P1 | S4 | Prompt structuré (6 sections) | Initialisation §1 | Site MetroCert en 4 pages, charte bleu nuit #1E3A8A / ambre #F59E0B, accueil « Vos instruments étalonnés, votre certificat en 24 h » | 4/5 |
+| P2 | 29/09 | Correctif ciblé (design) | Refaire les 6 cartes de la page Prestations : bande de famille, étiquette MASSE / PRESSION / TEMPÉRATURE, prix et délai | Cartes refaites, données et filtres inchangés, nombres au format français (« 35 000 FCFA », « 0,1 mg »). Lovable a foncé deux teintes d'étiquette pour la lisibilité et l'a signalé | 5/5 |
+| P3 | 29/09 20:29 | Prompt structuré + données d'exemple | Ajouter la page « Vérifier un résultat » : tableau de 5 lignes, E = lecture − référence, règles ILAC G8 (acceptation simple / zone de garde w = U), exemple du manomètre 0–10 bar, tolérance 1e-9 | Page ajoutée avec calcul automatique, deux règles, exemple prérempli, virgule décimale acceptée ; égalité \|E\| = EMT bien conforme en acceptation simple | 5/5 |
+| P4 | 30/09 12:34 | Correctif ciblé (responsive) | Mobile < 768 px : menu hamburger, filtres défilants, cartes en 1 colonne, tableau défilant, boutons pleine largeur, formulaire Contact | 5 ajustements faits et vérifiés à 488 px, affichage ordinateur inchangé | 4/5 |
+| P5 | 01/10 20:29 | Correctif ciblé (bug) | Le panneau du menu mobile est transparent : fond blanc opaque, z-index, liens empilés, blocage du défilement | Corrigé. Cause trouvée par Lovable : le panneau était à l'intérieur de la barre du haut floutée et ne mesurait que 65 px | 5/5 |
 
-Grille d'analyse de chaque prompt : ce qui a marché · ce qui a été mal interprété · ce qu'on a changé dans le prompt suivant.
+Grille d'analyse : **ce qui a marché** — un prompt = une modification, avec « Ne modifie rien d'autre » à la fin ; **ce qui a été mal interprété** — le bleu actif rendu en #142E7B au lieu de #1E3A8A, et le menu mobile cassé par l'itération P4 ; **ce qu'on a changé** — décrire le symptôme exact et la correction attendue (P5), ce qui a donné une correction en un seul essai.
+
+Captures : desktop [accueil](../s7/images/s01_accueil.jpg) · [tableau ILAC G8](../s7/images/s03_tableau_garde.jpg) — mobile [rapport](../s5/captures/L1_mobile_android_rapport.jpg) · [badge F1](../s5/captures/L1_mobile_android_F1_badge.jpg) · [bug du menu mobile](../s5/captures/L4_mobile_prestations_menu_bug.png).
 
 ---
 
-## 5. Note d'itération (L4 — ½ page, brouillon à ajuster)
+## 5. Note d'itération (L4 — ½ page)
 
-> **Ce que nous avons changé et pourquoi.** La génération initiale a produit les quatre pages, mais [décrire l'écart constaté, ex. nombres au format anglais]. Or un certificat d'étalonnage doit exprimer les résultats avec leurs unités de façon non ambiguë (ISO/IEC 17025 §7.8.2.1 m) : nous avons donc imposé la virgule décimale et l'écriture SI (I1). Nous avons ensuite ajouté un contrôle de complétude (I2), parce que la peur n° 1 de notre persona est l'écart d'audit dû à une mention manquante : l'aperçu est bloqué tant que l'étalon, son certificat ou les conditions ambiantes ne sont pas renseignés. Enfin, 70 % des utilisateurs au Sénégal sont sur smartphone et les techniciens saisissent parfois sur site : nous avons rendu le tableau des relevés utilisable sur mobile (I3).
+> **Ce que nous avons changé et pourquoi.** La génération initiale a produit les quatre pages et la charte MetroCert. Nous avons d'abord rendu les cartes de prestations lisibles par famille d'instruments (P2), puis ajouté le cœur métier : la page « Vérifier un résultat », qui calcule l'erreur E et applique une règle de décision ILAC G8 au choix (P3). Ce calcul est déterministe et vérifiable, ce qu'exige un résultat présenté à un auditeur (ISO/IEC 17025 §7.8.6). Comme les techniciens saisissent souvent sur site, nous avons ensuite adapté l'interface au téléphone (P4).
 >
-> **Choix de conception assumé.** Le MVP ne calcule pas l'incertitude : U est saisie depuis le budget validé du laboratoire. Un calcul d'incertitude généré par une IA ne serait ni vérifiable ni défendable en audit ; la V2 intégrera des budgets déterministes par famille.
+> **Choix de conception assumé.** Le MVP ne calcule pas l'incertitude : U est saisie depuis le budget validé du laboratoire. Un calcul d'incertitude généré par une IA ne serait ni vérifiable ni défendable en audit.
 >
-> **Ce qui reste difficile.** [ex. Lovable réécrit parfois le formulaire entier quand on demande un petit changement → un prompt = une modification.]
+> **Ce qui reste difficile.** Une itération peut en casser une autre : le menu mobile créé en P4 était transparent et illisible. Nous l'avons corrigé en décrivant précisément le symptôme et le résultat attendu (P5). Les crédits Lovable gratuits limitent aussi le nombre d'itérations par jour : chaque prompt doit être préparé à l'avance.
 
 ---
 

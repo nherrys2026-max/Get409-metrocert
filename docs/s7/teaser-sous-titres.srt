@@ -1,0 +1,48 @@
+1
+00:00:00,400 --> 00:00:06,887
+Un certificat d'étalonnage, c'est jusqu'à 22 mentions obligatoires selon l'ISO/IEC 17025.
+
+2
+00:00:07,087 --> 00:00:10,393
+À Dakar, beaucoup sont encore relus à la main, le soir.
+
+3
+00:00:10,593 --> 00:00:14,102
+Une mention oubliée, un étalon échu… et c'est l'écart d'audit.
+
+4
+00:00:15,400 --> 00:00:21,775
+MetroCert transforme les relevés en verdict de conformité, selon la règle de décision ILAC G8.
+
+5
+00:00:21,975 --> 00:00:23,938
+En un clic, sans ressaisie.
+
+6
+00:00:24,138 --> 00:00:27,756
+Le calcul est fait par l'application : il est vérifiable.
+
+7
+00:00:30,399 --> 00:00:33,364
+Notre agent IA relit le certificat en quelques secondes.
+
+8
+00:00:33,564 --> 00:00:38,505
+Il compare chaque mention aux exigences et au registre des étalons, et repère ici un étalon échu.
+
+9
+00:00:38,705 --> 00:00:41,896
+Il ne signe jamais : l'approbation reste humaine.
+
+10
+00:00:46,399 --> 00:00:51,523
+Objectif : livrer le client dans la journée et passer l'audit sans écart lié aux certificats.
+
+11
+00:00:51,723 --> 00:00:55,565
+MetroCert : la relecture de vos certificats, en un clic.
+
+12
+00:00:55,765 --> 00:00:57,341
+Essayez-le dès maintenant.
+

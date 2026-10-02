@@ -1,6 +1,8 @@
 # S7 — Script de la vidéo teaser MetroCert (60–75 s)
 
 > GET 409 · Séance 7 · Template « Mon script vidéo teaser » · Équipe MetroCert (I. NKOUNKOU) · Groupe : _à compléter_
+> **Version produite : [livrables/GET409-MetroCert_Teaser_S7.mp4](../../livrables/GET409-MetroCert_Teaser_S7.mp4)** — 65 s, 1920 × 1080, 30 i/s, voix off de synthèse (eSpeak NG + MBROLA fr4), sous-titres incrustés ([teaser-sous-titres.srt](teaser-sous-titres.srt)), images réelles du site public ([images/](images/)) et fond sonore généré (libre de droits). Pour une voix humaine : importer le MP4 dans CapCut, couper le son, enregistrer la voix off sur le texte ci-dessous.
+>
 > Livrable : MP4 · 16:9 · 1080p · **60 à 90 s** · sous-titres obligatoires. Workflow : script → prompts Kling AI → clips → montage CapCut → export.
 
 ## Étape 1 — Script en 4 actes
@@ -11,12 +13,12 @@ Rythme de la voix off : environ 2,3 mots par seconde, soit 30 à 35 mots par act
 |---|---|---|---|---|
 | **1. Le problème** | 0–15 s | Bureau de laboratoire le soir, une responsable technique relit seule une pile de certificats papier, lampe de bureau, horloge qui tourne. | « Un certificat d'étalonnage, c'est jusqu'à vingt-deux mentions obligatoires selon l'ISO/IEC 17025. À Dakar, beaucoup sont encore relus à la main, le soir. Une mention oubliée, un étalon échu… et c'est l'écart d'audit. » | Urgence |
 | **2. La solution** | 15–30 s | Captures du MVP : page « Vérifier un résultat », clic sur « Charger l'exemple », pastilles Conforme / Non conforme, bascule acceptation simple ↔ zone de garde. | « MetroCert transforme les relevés en verdict de conformité selon la règle de décision ILAC G8, en un clic, sans ressaisie. Le calcul est fait par l'application : il est vérifiable. » | Clarté |
-| **3. L'agent IA** | 30–45 s | Capture : certificat collé, clic « Contrôler avec l'agent MetroCert », rapport qui apparaît, zoom sur « ETA-T-02 … Échu [MC-18] », badge rouge « À corriger avant approbation ». | « Notre agent IA relit le certificat en vingt secondes. Il compare chaque mention aux exigences et au registre des étalons, et repère ici un étalon échu. Il ne signe jamais : l'approbation reste humaine. » | Précision |
-| **4. Impact + appel à l'action** | 45–60 s | Schéma d'architecture V2.1, puis écran final : logo MetroCert, URL, QR code vers le site. | « Objectif : livrer le client dans la journée et passer l'audit sans écart lié aux certificats. MetroCert, la relecture de vos certificats, en un clic. Essayez-le : pixel-perfect-capture-0446 point lovable point app. » | Conviction |
+| **3. L'agent IA** | 30–45 s | Capture : certificat collé, clic « Contrôler avec l'agent MetroCert », rapport qui apparaît, zoom sur « ETA-T-02 … Échu [MC-18] », badge rouge « À corriger avant approbation ». | « Notre agent IA relit le certificat en quelques secondes. Il compare chaque mention aux exigences et au registre des étalons, et repère ici un étalon échu. Il ne signe jamais : l'approbation reste humaine. » | Précision |
+| **4. Impact + appel à l'action** | 45–60 s | Schéma d'architecture V2.1, puis écran final : logo MetroCert, URL, QR code vers le site. | « Objectif : livrer le client dans la journée et passer l'audit sans écart lié aux certificats. MetroCert, la relecture de vos certificats, en un clic. Essayez-le dès maintenant. » (URL et QR code affichés à l'écran) | Conviction |
 
 Durée cible : 60 s. Marge possible jusqu'à 75 s en allongeant la démo de l'acte 3 ; ne jamais dépasser 90 s.
 
-Les chiffres cités viennent du projet : 22 exigences MC-01 à MC-22 (base `MetroCert_Regles_v1`, ISO/IEC 17025 §7.8), 20 s de réponse de l'agent mesurée sur le site public, ETA-T-02 échu au 31/08/2026 dans le registre fictif. Aucune statistique externe n'est citée : en ajouter une seulement avec sa source affichée à l'écran.
+Les chiffres cités viennent du projet : 22 exigences MC-01 à MC-22 (base `MetroCert_Regles_v1`, ISO/IEC 17025 §7.8), réponse de l'agent en 8 à 20 s mesurée sur le site public, ETA-T-02 échu au 31/08/2026 dans le registre fictif. Aucune statistique externe n'est citée : en ajouter une seulement avec sa source affichée à l'écran.
 
 ## Étape 2 — Prompts Kling AI (en anglais, 5 s, 16:9)
 
@@ -43,9 +45,9 @@ Précautions : les clips Kling sont des illustrations, à mêler aux **vraies ca
 
 ## Étape 5 — Export et dépôt
 
-- [ ] MP4, 1080p, 16:9 paysage
-- [ ] Durée entre 60 et 90 s (cible 60–75 s)
-- [ ] Sous-titres présents et vérifiés
-- [ ] Voix off audible et synchronisée
-- [ ] Aucune donnée réelle de client ni clé API visible à l'écran
+- [x] MP4, 1080p, 16:9 paysage
+- [x] Durée entre 60 et 90 s (65 s)
+- [x] Sous-titres présents et vérifiés
+- [x] Voix off audible et synchronisée (synthèse ; voix humaine possible dans CapCut)
+- [x] Aucune donnée réelle de client ni clé API visible à l'écran
 - [ ] Upload Google Drive, lien « toute personne disposant du lien », dépôt e-Academy (livrable L2)

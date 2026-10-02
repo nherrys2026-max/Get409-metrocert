@@ -26,7 +26,7 @@ Contrôles espacés d'1 minute (quota Groq gratuit : 8 000 jetons/min, ≈ 5 300
 | Rechargement | PC (~03:08) | F5 | Liste vide ; `localStorage` vide ; `sessionStorage` ne contient que la position de défilement du routeur. | ✅ |
 | T2 (public) | PC (03:52) | Certificat fictif complet CE-2026-0215, Pt100, étalon ETA-T-02 ([texte](../s6/demo-s6.md#entrée-a--certificat-avec-étalon-échu-t2)) | ⛔ ; Bilan 13 · 0 · 0 · 2 ; 🔎 « ETA-T-02 … statut Échu (échéance 31/08/2026) … [MC-18] » ; prochaine étape « Refaire l'étalonnage avec un étalon valide du registre (ex. ETA-T-05) ». Après approbation : « CE-2026-0215 — Approuvé par… » (pas de doublon « CE-CE- »). | ✅ |
 
-Captures : [T7](captures/T7_F1_verdict_rouge.jpg) · [T8](captures/T8_F1_verdict_vert.jpg) · captures téléphone (02/10, 02:29) à ajouter dans `captures/`.
+Captures : [T7](captures/T7_F1_verdict_rouge.jpg) · [T8](captures/T8_F1_verdict_vert.jpg) · téléphone Android, 02/10 02:29 : [rapport](captures/L1_mobile_android_rapport.jpg) · [badge F1](captures/L1_mobile_android_F1_badge.jpg).
 
 ## Module A — secours Gemini (02/10/2026, 03:48)
 

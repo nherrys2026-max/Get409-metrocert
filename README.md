@@ -61,7 +61,7 @@ Par rapport à la S1, le HMW définitif garde un seul utilisateur principal (le 
 | **L1 · MVP V1 en ligne** (35 pts) | [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) | ✅ |
 | **L2 · Projet Lovable public + README** (25 pts) | Projet Lovable « Pixel Perfect Pixels », site public [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) · README : ce dépôt · code non encore exporté vers GitHub | ✅ |
 | **L3 · Journal de prompts S4** (init + 3 itérations) | [docs/s4/s4-mvp-lovable.md §4](docs/s4/s4-mvp-lovable.md#4-journal-de-prompts-s4-l3--min-4-prompts) | ✅ 5 prompts notés |
-| **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page-brouillon-à-ajuster) | ✅ |
+| **L4 · Captures + note d'itération** | [docs/s4/s4-mvp-lovable.md §5](docs/s4/s4-mvp-lovable.md#5-note-ditération-l4--½-page) | ✅ |
 
 Prompts prêts à coller : [docs/s4/s4-mvp-lovable.md](docs/s4/s4-mvp-lovable.md).
 

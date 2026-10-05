@@ -15,7 +15,7 @@ Contact GitHub de l'équipe : nherrys2026@gmail.com
 | Séance | État |
 | --- | --- |
 | S1–S2 · Carte d'empathie, HMW, VPC | ✅ |
-| S4 · MVP Lovable | ✅ en ligne : [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) |
+| S4 · MVP Lovable | ✅ en ligne : [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) · miroir Netlify : [metrocert.netlify.app](https://metrocert.netlify.app) |
 | S5 · Agent Dify RAG + webhook | ✅ tests T1–T8 réussis sur le site public |
 | S6 · Démo + note d'éthique | ✅ prêtes, répétition technique faite le 02/10 — [demo-s6.md](docs/s6/demo-s6.md) |
 | S7 · Vidéo teaser | ✅ [MP4](livrables/GET409-MetroCert_Teaser_S7.mp4) · [Drive](https://drive.google.com/file/d/1MZlczOea9-hb6dAhMX_aC0hCcxFFewBT/view?usp=sharing) |

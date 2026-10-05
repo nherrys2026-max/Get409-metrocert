@@ -29,6 +29,14 @@ Contrôles espacés d'1 minute (quota Groq gratuit : 8 000 jetons/min, ≈ 5 300
 
 Captures : [T7](captures/T7_F1_verdict_rouge.jpg) · [T8](captures/T8_F1_verdict_vert.jpg) · téléphone Android, 02/10 02:29 : [rapport](captures/L1_mobile_android_rapport.jpg) · [badge F1](captures/L1_mobile_android_F1_badge.jpg).
 
+## Miroir Netlify (05/10/2026)
+
+**https://metrocert.netlify.app** — déployé depuis le dépôt GitHub `nherrys2026-max/pixel-perfect-capture-0446` (branche `main`).
+
+- Premier test : « Service temporairement indisponible » en 0,5 s. La fonction serveur s'exécutait mais n'avait pas la clé : le secret Lovable Cloud n'est pas copié vers Netlify.
+- Correction : variable d'environnement `DIFY_API_KEY` créée dans Netlify (secret, tous les scopes, Production + Deploy Previews), puis redéploiement.
+- Tests après redéploiement : T3 → `INSUFFISANT` en 3,1 s ✅ ; T2 (CE-2026-0215, ETA-T-02) → ⛔, bilan 11 · 2 · 0 · 2, ETA-T-02 échu [MC-18], ETA-T-05 proposé, badge rouge, « Renvoyer au technicien », « Approuver » grisé ✅.
+
 ## Module A — secours Gemini (02/10/2026, 03:48)
 
 - Clé AI Studio créée sur le projet Google Cloud `metrocert`. Une première clé, apparue en clair sur une capture, a été **supprimée et remplacée** (règle §7 du tutoriel).

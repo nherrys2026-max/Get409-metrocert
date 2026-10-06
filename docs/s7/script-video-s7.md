@@ -1,7 +1,9 @@
 # S7 — Script de la vidéo teaser MetroCert (60–75 s)
 
 > GET 409 · Séance 7 · Template « Mon script vidéo teaser » · Équipe MetroCert (I. NKOUNKOU) · Groupe : _à compléter_
-> **Version produite : [livrables/GET409-MetroCert_Teaser_S7.mp4](../../livrables/GET409-MetroCert_Teaser_S7.mp4)** — 65 s, 1920 × 1080, 30 i/s, voix off de synthèse (eSpeak NG + MBROLA fr4), sous-titres incrustés ([teaser-sous-titres.srt](teaser-sous-titres.srt)), images réelles du site public ([images/](images/)) et fond sonore généré (libre de droits). Pour une voix humaine : importer le MP4 dans CapCut, couper le son, enregistrer la voix off sur le texte ci-dessous.
+> **Version verticale (livrable, 06/10) : [livrables/GET409-MetroCert_Teaser_S7_9x16.mp4](../../livrables/GET409-MetroCert_Teaser_S7_9x16.mp4)** — 65 s, **1080 × 1920 (9:16)**, même voix off et même minutage, écrans recomposés à la verticale (panoramiques sur les captures), sous-titres agrandis. Scripts : [montage-9x16/](montage-9x16/).
+>
+> Version 16:9 d'origine : [livrables/GET409-MetroCert_Teaser_S7.mp4](../../livrables/GET409-MetroCert_Teaser_S7.mp4)** — 65 s, 1920 × 1080, 30 i/s, voix off de synthèse (eSpeak NG + MBROLA fr4), sous-titres incrustés ([teaser-sous-titres.srt](teaser-sous-titres.srt)), images réelles du site public ([images/](images/)) et fond sonore généré (libre de droits). Pour une voix humaine : importer le MP4 dans CapCut, couper le son, enregistrer la voix off sur le texte ci-dessous.
 >
 > Livrable : MP4 · 16:9 · 1080p · **60 à 90 s** · sous-titres obligatoires. Workflow : script → prompts Kling AI → clips → montage CapCut → export.
 
@@ -45,7 +47,7 @@ Précautions : les clips Kling sont des illustrations, à mêler aux **vraies ca
 
 ## Étape 5 — Export et dépôt
 
-- [x] MP4, 1080p, 16:9 paysage
+- [x] MP4, 1080 × 1920, **9:16 vertical** (version 16:9 conservée pour archive)
 - [x] Durée entre 60 et 90 s (65 s)
 - [x] Sous-titres présents et vérifiés
 - [x] Voix off audible et synchronisée (synthèse ; voix humaine possible dans CapCut)

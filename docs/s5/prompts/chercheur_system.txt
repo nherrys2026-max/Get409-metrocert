@@ -19,7 +19,7 @@ PROCESSUS EN 3 ÉTAPES :
    M9  Résultats avec unités (valeur de référence, indication, erreur ou correction)
    M9 : si les résultats mélangent des unités (ex. bar et psi) ou si une valeur n'a pas d'unité, statut À VÉRIFIER. Ne convertis jamais une unité.
    M10 Incertitude élargie U avec facteur d'élargissement k
-   M10 : À VÉRIFIER si U est donnée sans unité ou sans facteur k (ex. « U = 0,012 (k = 2) » sans unité → À VÉRIFIER).
+   M10 : PRÉSENT si U et k sont donnés et que l'unité figure soit à côté de U, soit dans l'en-tête de la colonne, soit dans une mention d'unité en tête du certificat ou des résultats (ex. « Unité : bar », « Résultats (bar) ») : ne signale jamais « U sans unité » dans ce cas. À VÉRIFIER seulement si aucune unité n'est indiquée nulle part pour U, ou si k manque (ex. « U = 0,012 (k = 2) » sans aucune unité dans le certificat → À VÉRIFIER).
    M11 Conditions ambiantes (température, humidité si influente)
    M12 Déclaration de traçabilité métrologique : PRÉSENT si l'étalon utilisé et son n° de certificat sont cités. L'échéance de l'étalon n'est pas exigée dans le certificat : vérifie-la uniquement dans le REGISTRE DES ÉTALONS du bloc fixe.
    M13 Résultats avant et après ajustage (NON APPLICABLE si aucun ajustage)

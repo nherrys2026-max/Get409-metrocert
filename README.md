@@ -18,7 +18,7 @@ Contact GitHub de l'équipe : nherrys2026@gmail.com
 | S4 · MVP Lovable | ✅ en ligne : [pixel-perfect-capture-0446.lovable.app](https://pixel-perfect-capture-0446.lovable.app) · miroir Netlify : [metrocert.netlify.app](https://metrocert.netlify.app) |
 | S5 · Agent Dify RAG + webhook | ✅ tests T1–T8 réussis sur le site public |
 | S6 · Démo + note d'éthique | ✅ prêtes, répétition technique faite le 02/10 — [demo-s6.md](docs/s6/demo-s6.md) |
-| S7 · Vidéo teaser | ✅ **version verticale 9:16** : [MP4 1080 × 1920](livrables/GET409-MetroCert_Teaser_S7_9x16.mp4) · version 16:9 d'origine : [MP4](livrables/GET409-MetroCert_Teaser_S7.mp4) |
+| S7 · Vidéo teaser | ✅ **version verticale 9:16** : [MP4 1080 × 1920](livrables/GET409-MetroCert_Teaser_S7_9x16.mp4) · [Drive](https://drive.google.com/file/d/1D55L9fom_X87azvrJCxsgDMhZsSjKtRk/view?usp=sharing) · version 16:9 d'origine : [MP4](livrables/GET409-MetroCert_Teaser_S7.mp4) |
 | Atelier Claude Code (15 épisodes) | ✅ terminé le 06/10 — **MetroCert App en ligne : [metrocert-app.onrender.com](https://metrocert-app.onrender.com)** · [dépôt](https://github.com/nherrys2026-max/metrocert-app) (Express, 21 tests, agent Dify côté serveur) · voir [section dédiée](#atelier-claude-code--metrocert-app) |
 
 Reste à faire : dépôt de la vidéo 9:16 sur e-Academy, répétition orale de la démo.
@@ -95,7 +95,7 @@ Agent Dify : `MetroCert_ControleCertificat_v1_[HERRYSTEAM]` — Workflow — ver
 | Livrable | Fichier | Statut |
 | --- | --- | --- |
 | **Script vidéo** (4 actes × 15 s, voix off, prompts Kling AI) | [docs/s7/script-video-s7.md](docs/s7/script-video-s7.md) | ✅ prêt |
-| **L2 · Vidéo teaser verticale** MP4 65 s, **1080 × 1920 (9:16)**, 30 i/s, sous-titres incrustés | [livrables/GET409-MetroCert_Teaser_S7_9x16.mp4](livrables/GET409-MetroCert_Teaser_S7_9x16.mp4) · montage reproductible : [docs/s7/montage-9x16/](docs/s7/montage-9x16/) | ✅ refaite le 06/10 · ⏳ Drive et e-Academy |
+| **L2 · Vidéo teaser verticale** MP4 65 s, **1080 × 1920 (9:16)**, 30 i/s, sous-titres incrustés | [livrables/GET409-MetroCert_Teaser_S7_9x16.mp4](livrables/GET409-MetroCert_Teaser_S7_9x16.mp4) · [lien Google Drive](https://drive.google.com/file/d/1D55L9fom_X87azvrJCxsgDMhZsSjKtRk/view?usp=sharing) · montage reproductible : [docs/s7/montage-9x16/](docs/s7/montage-9x16/) | ✅ refaite le 06/10 · déposée sur Drive · ⏳ e-Academy |
 | Version 16:9 d'origine (1920 × 1080) | [livrables/GET409-MetroCert_Teaser_S7.mp4](livrables/GET409-MetroCert_Teaser_S7.mp4) · [Drive](https://drive.google.com/file/d/1MZlczOea9-hb6dAhMX_aC0hCcxFFewBT/view?usp=sharing) | remplacée par la 9:16 |
 
 Lien de démo : **[pixel-perfect-capture-0446.lovable.app/verifier-resultat](https://pixel-perfect-capture-0446.lovable.app/verifier-resultat)**

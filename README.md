@@ -19,9 +19,9 @@ Contact GitHub de l'équipe : nherrys2026@gmail.com
 | S5 · Agent Dify RAG + webhook | ✅ tests T1–T8 réussis sur le site public |
 | S6 · Démo + note d'éthique | ✅ prêtes, répétition technique faite le 02/10 — [demo-s6.md](docs/s6/demo-s6.md) |
 | S7 · Vidéo teaser | ✅ **version verticale 9:16** : [MP4 1080 × 1920](livrables/GET409-MetroCert_Teaser_S7_9x16.mp4) · version 16:9 d'origine : [MP4](livrables/GET409-MetroCert_Teaser_S7.mp4) |
-| Atelier Claude Code (15 épisodes) | ✅ terminé le 06/10 — [nouvelle app MetroCert App](https://github.com/nherrys2026-max/metrocert-app) (Express, 21 tests, agent Dify côté serveur) · voir [section dédiée](#atelier-claude-code--metrocert-app) |
+| Atelier Claude Code (15 épisodes) | ✅ terminé le 06/10 — **MetroCert App en ligne : [metrocert-app.onrender.com](https://metrocert-app.onrender.com)** · [dépôt](https://github.com/nherrys2026-max/metrocert-app) (Express, 21 tests, agent Dify côté serveur) · voir [section dédiée](#atelier-claude-code--metrocert-app) |
 
-Reste à faire : mise en ligne de MetroCert App sur Render (lien public), dépôt de la vidéo 9:16 sur e-Academy, répétition orale de la démo.
+Reste à faire : dépôt de la vidéo 9:16 sur e-Academy, répétition orale de la démo.
 
 ## Notre défi
 
@@ -111,13 +111,13 @@ Guide de l'atelier : [Atelier Claude Code](https://claude.ai/artifact/TGQKQqKvmo
 | E03–E04 · skill frontend-design, CLAUDE.md | Page d'accueil v1 / v2 (v2 retenue comme direction de design) | [metrocert-landing](https://github.com/nherrys2026-max/metrocert-landing) · [en ligne](https://nherrys2026-max.github.io/metrocert-landing/) |
 | E05 · skill `/metrocert-brand` | Voix de marque réutilisable (posts, e-mails, pitch) | skill utilisateur locale |
 | E06 · navigateur Playwright | Audit de metrocert.netlify.app + plan marketing 8 semaines | [metrocert-audit](https://github.com/nherrys2026-max/metrocert-audit) |
-| E07–E10 · CLAUDE.md, secrets, agent Dify, boucle Ralph | **MetroCert App** : relevés → certificat ISO/IEC 17025 §7.8 imprimable, contrôle par l'agent Dify côté serveur | [metrocert-app](https://github.com/nherrys2026-max/metrocert-app) |
+| E07–E10 · CLAUDE.md, secrets, agent Dify, boucle Ralph | **MetroCert App** : relevés → certificat ISO/IEC 17025 §7.8 imprimable, contrôle par l'agent Dify côté serveur | [metrocert-app](https://github.com/nherrys2026-max/metrocert-app) · [en ligne](https://metrocert-app.onrender.com) |
 | E11 · skill PDF + agent Python | Vérificateur de relevés en ligne de commande, certificat PDF | [metrocert-python](https://github.com/nherrys2026-max/metrocert-python) |
 | E12–E13 · copilote, brief automatique | Copilote GET 409 (SOUL / PLAYBOOK / MÉMOIRE), brief quotidien à 8 h | local |
 | E14 · sous-agent relecteur sécurité | Relecture sécurité : aucun point bloquant, corrections appliquées | `.claude/agents/relecteur-securite.md` |
 
 **MetroCert App** (Node.js + Express, sans framework côté client) : `npm test` → 21 tests (calculs, rendu, routes, appel Dify simulé), clé `DIFY_API_KEY` uniquement côté serveur, certificat lisible sur téléphone (une fiche par point de mesure).
-Mise en ligne : Blueprint Render prêt (`render.yaml`), procédure dans [DEPLOIEMENT.md](https://github.com/nherrys2026-max/metrocert-app/blob/main/DEPLOIEMENT.md).
+**En ligne : [metrocert-app.onrender.com](https://metrocert-app.onrender.com)** (Render, offre gratuite : premier chargement d'environ 50 s après une période d'inactivité). Déploiement : `render.yaml`, procédure dans [DEPLOIEMENT.md](https://github.com/nherrys2026-max/metrocert-app/blob/main/DEPLOIEMENT.md).
 
 Corrections du 06/10 suite au retour du professeur : 2 tests annulés corrigés (minuteur explicite dans `lib/dify.js`), tableau des résultats en fiches sur mobile, faux positif « U sans unité » corrigé (règle M10 du prompt CHERCHEUR + unité en tête du texte envoyé à l'agent), vidéo refaite en 9:16.
 
